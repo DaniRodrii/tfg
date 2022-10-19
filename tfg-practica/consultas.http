@@ -1,0 +1,11 @@
+###
+POST http://localhost:9000/api/usuarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nom_compl":"Daniel Rodriguez Rol",
+    "nom_user":"dani_12",
+    "edad":20,
+    "correo":"drcorreo@gmail.com",
+    "contrasena":"12345"
+}

@@ -1,14 +1,11 @@
 const express = require('express');
-const usuario = require('../modelos/usuario');
-
 const router = express.Router();
+const usuario = require('../funciones/FuncionesUser');
 
-//Crear usuario
-router.post('/usuarios', (req, res) => {
-    const user = usuario(req.body);
-    user.save()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({message: error}));
-})
+router.post('/', usuario.crearUser);
+router.get('/', usuario.obtenerUsers);
+router.get('/:id', usuario.obtenerUser);
+router.put('/:id', usuario.editarUsers);
+router.delete('/:id', usuario.borrarUsers);
 
 module.exports = router;

@@ -3,29 +3,29 @@ const mongoose = require('mongoose');
 const DatosUsuario = mongoose.Schema({
     nom_compl: {
         type: String,
-        required: true
+        require: true
     },
 
     nom_user: {
         type: String,
-        required: true,
+        require: true,
         unique: true
     },
 
     edad: {
         type: Number,
-        required: true
+        require: true
     },
 
     correo: {
         type: String,
-        required: true,
+        require: true,
         unique: true
     },
 
     contrasena: {
         type: String,
-        required: true
+        require: true
     }
 });
 

@@ -3,36 +3,36 @@ const mongoose = require('mongoose');
 const DatosEmpleado = mongoose.Schema({
     nom_emp: {
         type: String,
-        required: true
+        require: true
     },
 
     sexo: {
         type: String,
-        required: true
+        require: true
     },
 
     edad: {
         type: Number,
-        required: true
+        require: true
     },
 
     cargo: {
         type: String,
-        required: true
+        require: true
     },
 
     nom_rest: {
         type: String,
-        required: true
+        require: true
     },
 
     DNI: {
         type: String,
-        required: true
+        require: true
     },
 
     contrasena: {
         type: String,
-        required: true
+        require: true
     }
 });

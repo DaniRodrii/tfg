@@ -3,31 +3,31 @@ const mongoose = require('mongoose');
 const DatosRestaurante = mongoose.Schema({
     nom_rest: {
         type: String,
-        required: true
+        require: true
     },
 
     nom_dueno: {
         type: String,
-        required: true
+        require: true
     },
 
     telefono: {
         type: Number,
-        required: true
+        require: true
     },
 
     mesas: {
         type: String,
-        required: true
+        require: true
     },
 
     id_user: {
         type: String,
-        required: true
+        require: true
     },
 
     direccion: {
         type: String,
-        required: true
+        require: true
     }
 });

@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:9000/api/usuarios/635189a638c43c34eb1caf88 HTTP/1.1
+GET  http://localhost:9000/api/usuarios HTTP/1.1
 
 ###
 PUT http://localhost:9000/api/usuarios/635189a638c43c34eb1caf88 HTTP/1.1

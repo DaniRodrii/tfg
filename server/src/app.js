@@ -2,7 +2,7 @@ const express = require('express');
 const rutasUsuario = require('./rutas/usuarios');
 const app =express();
 
-const port= process.env.PORT || 9000;
+const port= process.env.PORT || 4200;
 
 app.set('port', port);
 

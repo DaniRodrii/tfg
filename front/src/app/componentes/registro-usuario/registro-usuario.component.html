@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="container">
+        <form #registroForm="ngForm" (ngSubmit)="registrarse(registroForm)">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="servicio.usuarioRegister.nom_compl" name="nom_compl" class="form-control" placeholder="Nombre completo" required autofocus>
+            </div>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="servicio.usuarioRegister.nom_user" name="nom_user" class="form-control" placeholder="Nombre usuario" required>
+            </div>
+            <div class="form-group">
+                <input type="number" [(ngModel)]="servicio.usuarioRegister.edad"  name="edad" class="form-control" placeholder="edad" required>
+            </div>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="servicio.usuarioRegister.correo"  name="correo" class="form-control" placeholder="correo" required>
+            </div>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="servicio.usuarioRegister.contrasena"  name="contrasena" class="form-control" placeholder="contraseña" required>
+            </div>
+            <button type="submit" class="btn">Registrase</button>
+            
+        </form>
+    </div>
+</div>

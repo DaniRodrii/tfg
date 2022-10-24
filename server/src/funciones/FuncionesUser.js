@@ -1,14 +1,17 @@
 
 const usuario = require('../modelos/usuario');
-
+const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
 
 //Crear usuario
 funcionesUsuario.crearUser = (req, res) => {
     const user = usuario(req.body);
-    user.save()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({message: error}));
+    const token=jwt.sign({_id: user._id}, 'auth');
+    user.save();
+
+    return res.json(token);
+        
+  
 };
 
 //Obtener usuarios
@@ -40,3 +43,18 @@ funcionesUsuario.borrarUsers = (req, res) => {
 };
 
 module.exports = funcionesUsuario;
+
+function autentication(req, res, next){
+    if(!req.headers.authorization){
+        return res.status(401).send("No autorizado");
+    }
+
+    const token=req.headers.authorization.split(' ');
+    if(token==null){
+        return res.status(401).send("No autorizado");
+    }
+
+    const contenToken = jwt.verify(token, 'auth');
+    req.userId=contenToken._id;
+    next();
+}

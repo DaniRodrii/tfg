@@ -1,1 +1,15 @@
-<p>login-usuario works!</p>
+<div class="row">
+    <div class="container">
+        <form #loginForm="ngForm" (ngSubmit)="loguearse(loginForm)">
+            <div class="form-group">
+                <input type="text" [(ngModel)]="servicio.usuarioLogin.correo"  name="correo" class="form-control" placeholder="correo" required>
+            </div>
+            <div class="form-group">
+                <input type="password" [(ngModel)]="servicio.usuarioLogin.contrasena"  name="contrasena" class="form-control" placeholder="contraseña" required>
+            </div>
+            <button type="submit" class="btn">Loguearse</button>
+        </form>
+        <a routerLink="/registroUser">Registrarse</a>
+    </div>
+</div>
+

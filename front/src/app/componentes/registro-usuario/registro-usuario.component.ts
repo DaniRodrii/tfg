@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService} from '../../servicios/usuario.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -11,7 +12,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
   usuario={}
 
-  constructor(public servicio: UsuarioService) { }
+  constructor(public servicio: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,7 @@ export class RegistroUsuarioComponent implements OnInit {
       res => {
         localStorage.setItem('token', JSON.stringify(res));
         alert("Usuario registrado");
+        this.router.navigate(['/']);
       },
       err => {
         console.error(err);

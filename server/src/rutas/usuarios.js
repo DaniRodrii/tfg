@@ -3,7 +3,7 @@ const router = express.Router();
 const usuario = require('../funciones/FuncionesUser');
 
 router.post('/registro', usuario.crearUser);
-//Falta login
+router.post('/login', usuario.loguearUser);
 router.get('/', usuario.obtenerUsers);
 router.get('/:id', usuario.obtenerUser);
 router.put('/:id', usuario.editarUsers);

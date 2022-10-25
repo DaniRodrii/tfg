@@ -26,6 +26,11 @@ const DatosUsuario = mongoose.Schema({
     contrasena: {
         type: String,
         require: true
+    },
+
+    imagen: {
+        type: String,
+        require: true
     }
 });
 

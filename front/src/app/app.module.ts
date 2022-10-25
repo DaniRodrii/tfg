@@ -10,6 +10,7 @@ import { LoginUsuarioComponent } from './componentes/login-usuario/login-usuario
 import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
 import { VerUsuarioComponent } from './componentes/ver-usuario/ver-usuario.component';
 import { AdminUsuariosComponent } from './componentes/admin-usuarios/admin-usuarios.component';
+import { PrincipalComponent } from './componentes/principal/principal.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AdminUsuariosComponent } from './componentes/admin-usuarios/admin-usuar
     LoginUsuarioComponent,
     EditarUsuarioComponent,
     VerUsuarioComponent,
-    AdminUsuariosComponent
+    AdminUsuariosComponent,
+    PrincipalComponent
   ],
   imports: [
     BrowserModule,

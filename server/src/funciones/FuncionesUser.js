@@ -9,10 +9,28 @@ funcionesUsuario.crearUser = (req, res) => {
     const token=jwt.sign({_id: user._id}, 'auth');
     user.save();
 
-    return res.json(token);
+    return res.status(200).json(token);
         
   
 };
+
+//login
+funcionesUsuario.loguearUser = async (req, res) => {
+    const user = await usuario.findOne({correo: req.body.correo});
+    
+    if(!user){
+        return res.status(401).send('El email no existe');
+    }
+
+    if(user.contrasena !== req.body.contrasena){
+        return res.status(401).send('Contraseña erronea');
+    }
+
+
+    const token=jwt.sign({_id: user._id}, 'auth');
+    return res.status(200).json(token);
+
+} 
 
 //Obtener usuarios
 funcionesUsuario.obtenerUsers = (req, res) => {

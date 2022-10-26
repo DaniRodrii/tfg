@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';  
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public servicio: UsuarioService,private router : Router) { }
+
+  
 
   ngOnInit(): void {
+     
   }
 
 }

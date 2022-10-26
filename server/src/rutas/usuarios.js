@@ -5,7 +5,7 @@ const usuario = require('../funciones/FuncionesUser');
 router.post('/registro', usuario.crearUser);
 router.post('/login', usuario.loguearUser);
 router.get('/', usuario.obtenerUsers);
-router.get('/:id', usuario.obtenerUser);
+router.post('/perfil', usuario.obtenerUser);
 router.put('/:id', usuario.editarUsers);
 router.delete('/:id', usuario.borrarUsers);
 

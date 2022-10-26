@@ -6,6 +6,7 @@ const funcionesUsuario = {};
 //Crear usuario
 funcionesUsuario.crearUser = (req, res) => {
     const user = usuario(req.body);
+    user.imagen='../../../assets/fotoperfil.png';
     const token=jwt.sign({_id: user._id}, 'auth');
     user.save();
 
@@ -17,7 +18,6 @@ funcionesUsuario.crearUser = (req, res) => {
 //login
 funcionesUsuario.loguearUser = async (req, res) => {
     const user = await usuario.findOne({correo: req.body.correo});
-    
     if(!user){
         return res.status(401).send('El email no existe');
     }
@@ -41,7 +41,13 @@ funcionesUsuario.obtenerUsers = (req, res) => {
 
 //Obtener usuario
 funcionesUsuario.obtenerUser = (req, res) => {
-    usuario.findById(req.params.id)
+    let token=req.body.tokenCif;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+    
+    usuario.findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 };
@@ -55,24 +61,16 @@ funcionesUsuario.editarUsers = (req, res) => {
 
 //Borrar usuarios
 funcionesUsuario.borrarUsers = (req, res) => {
-    usuario.findByIdAndDelete(req.params.id)
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+
+    usuario.findByIdAndDelete(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 };
 
 module.exports = funcionesUsuario;
 
-function autentication(req, res, next){
-    if(!req.headers.authorization){
-        return res.status(401).send("No autorizado");
-    }
-
-    const token=req.headers.authorization.split(' ');
-    if(token==null){
-        return res.status(401).send("No autorizado");
-    }
-
-    const contenToken = jwt.verify(token, 'auth');
-    req.userId=contenToken._id;
-    next();
-}

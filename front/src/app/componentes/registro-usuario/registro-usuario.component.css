@@ -1,0 +1,14 @@
+input{
+    border: none;
+    border-bottom: 1px solid black;;
+}
+
+button{
+    border:none;
+    color:white;
+    background-color: black;
+}
+
+input.ng-invalid.ng-touched{
+    border-bottom:1px solid red;
+}

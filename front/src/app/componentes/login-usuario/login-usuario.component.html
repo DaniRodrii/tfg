@@ -1,15 +1,17 @@
 <div class="row">
     <div class="container">
-        <form #loginForm="ngForm" (ngSubmit)="loguearse(loginForm)">
+        <form [formGroup]="loginForm" (submit)="loguearse()">
             <div class="form-group">
-                <input type="text" [(ngModel)]="servicio.usuarioLogin.correo"  name="correo" class="form-control" placeholder="correo" required>
+                <label for="correo">Correo</label>
+                <input type="text" formControlName="correo" name="correo" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="password" [(ngModel)]="servicio.usuarioLogin.contrasena"  name="contrasena" class="form-control" placeholder="contraseña" required>
+                <label for="contrasena">Contraseña</label>
+                <input type="password" formControlName="contrasena" name="contrasena" class="form-control" required>
             </div>
-            <button type="submit" class="btn">Loguearse</button>
+            <button type="submit" class="btn" [disabled]="loginForm.invalid">Loguearse</button>
         </form>
         <a routerLink="/registroUser">Registrarse</a>
     </div>
-</div>
+</div> 
 

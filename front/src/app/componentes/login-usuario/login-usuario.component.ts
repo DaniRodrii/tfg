@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -12,14 +12,24 @@ export class LoginUsuarioComponent implements OnInit {
 
   user = {}
 
-  constructor(public servicio: UsuarioService, private router: Router) { }
-
+  constructor(public servicio: UsuarioService, private router: Router, private fb: FormBuilder) { }
+  public loginForm!: FormGroup;
   ngOnInit(): void {  
-    
+    this.loginForm = this.fb.group({
+      correo:[' ', [
+        Validators.required,
+        Validators.email
+      ]],
+      contrasena:[' ', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(18)
+      ]]
+    })
   }
 
-  loguearse(form : NgForm){
-    this.servicio.login(form.value).subscribe(
+  loguearse(){
+    this.servicio.login(this.loginForm.value).subscribe(
       res => {
         localStorage.setItem('token', JSON.stringify(res));
         alert("Usuario logueado");

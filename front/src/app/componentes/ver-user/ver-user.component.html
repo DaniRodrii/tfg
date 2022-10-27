@@ -37,7 +37,7 @@
   </div>
 
 <div>
-    <img src="{{servicio.usuario.imagen}}" alt="imagen" class="img-perfil"><br>
+    <img src="../../../assets/{{servicio.usuario.imagen}}" alt="imagen" class="img-perfil"><br>
     <span><b>Nombre de usuario</b></span>
     <p>{{servicio.usuario.nom_user}}</p>
     <span><b>Nombre completo</b></span>
@@ -46,7 +46,7 @@
     <p>{{servicio.usuario.correo}}</p>
     <span><b>Edad</b></span>
     <p>{{servicio.usuario.edad}}</p>
-    <a href="#">Editar Usuario</a>
+    <a routerLink="/editarUser">Editar Usuario</a>
     <button type="button" data-bs-toggle="modal" data-bs-target="#ModalCerrarSesion">Cerrar Sesión</button>
     <button type="button" data-bs-toggle="modal" data-bs-target="#modalBorrarUser">Borrar Usuario</button>
 </div>

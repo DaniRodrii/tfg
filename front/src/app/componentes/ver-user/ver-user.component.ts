@@ -15,9 +15,7 @@ export class VerUserComponent implements OnInit {
 
   ngOnInit(): void {
     const token=localStorage.getItem('token')!;
-      const tokenEnv={tokenCif: token};
-      console.log(tokenEnv);
-      this.servicio.editar(tokenEnv).subscribe(
+      this.servicio.editar(token).subscribe(
         res => {
           let user=JSON.stringify(res);
           this.servicio.usuario=JSON.parse(user);
@@ -34,7 +32,7 @@ export class VerUserComponent implements OnInit {
       this.router.navigate(['loginUser']);
 
   }
-
+ 
   borrarUsuario(){
       const token=localStorage.getItem('token')!;
         this.servicio.borrarUser(token).subscribe(

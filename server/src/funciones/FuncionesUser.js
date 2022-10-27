@@ -6,7 +6,7 @@ const funcionesUsuario = {};
 //Crear usuario
 funcionesUsuario.crearUser = (req, res) => {
     const user = usuario(req.body);
-    user.imagen='../../../assets/fotoperfil.png';
+    user.imagen='fotoperfil.png';
     const token=jwt.sign({_id: user._id}, 'auth');
     user.save();
 
@@ -34,29 +34,33 @@ funcionesUsuario.loguearUser = async (req, res) => {
 
 //Obtener usuarios
 funcionesUsuario.obtenerUsers = (req, res) => {
-    usuario.find()
+    usuario.find() 
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 };
 
 //Obtener usuario
-funcionesUsuario.obtenerUser = (req, res) => {
-    let token=req.body.tokenCif;
+funcionesUsuario.obtenerUser = async (req, res) => {
+    let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 
     const tokenDecode=jwt.decode(tokenSplit);
     const id=tokenDecode._id;
     
-    usuario.findById(id)
+    await usuario.findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 };
 
 //Editar usuarios
 funcionesUsuario.editarUsers = (req, res) => {
-    usuario.findByIdAndUpdate(req.params.id, req.body)
-        .then((data) => res.json(data))
-        .catch((error) => res.json({message: error}));
+    console.log(req.params.id);
+    console.log(req.body);
+
+
+    // usuario.findByIdAndUpdate(req.params.id, req.body)
+    //     .then((data) => res.json(data))
+    //     .catch((error) => res.json({message: error}));
 };
 
 //Borrar usuarios
@@ -65,12 +69,18 @@ funcionesUsuario.borrarUsers = (req, res) => {
     let tokenSplit=token.replace(/['"]+/g, '');
 
     const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
+    const id=tokenDecode._id; 
 
     usuario.findByIdAndDelete(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 };
+ 
+
+
+
+
+
 
 module.exports = funcionesUsuario;
 

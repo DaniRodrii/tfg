@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { usuario } from '../descripciones/usuario';
 import { usuarioLog } from '../descripciones/usuarioLog';
-import { token } from '../descripciones/token';
+import { editarUsuario } from '../descripciones/editarUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +25,6 @@ export class UsuarioService {
     contrasena: ''
   };
 
-  tokenEnv : token={
-    tokenCif: ''
-  }
  
   usuario: usuario = {
     nom_compl: '',
@@ -36,6 +33,12 @@ export class UsuarioService {
     correo: '',
     contrasena: '',
     imagen:'fotoperfil.png'
+  }
+
+  editUsuario: editarUsuario = {
+    nom_compl: '',
+    nom_user: '',
+    edad: 0
   }
 
   constructor(private http: HttpClient) { }
@@ -48,8 +51,8 @@ export class UsuarioService {
     return this.http.post(this.url_api + '/login', Usuario);
   }
 
-  editar(tokenEnv: token){
-    return this.http.post(this.url_api + '/perfil', tokenEnv);
+  editar(token: string){
+    return this.http.get(this.url_api + '/'+token);
   }
 
   logueado(){
@@ -58,7 +61,16 @@ export class UsuarioService {
 
   borrarUser(token: string){
     return this.http.delete(this.url_api + '/'+token);
-  
   }
+ 
+  editarUsuario(imgForm: FormData, formulario: { nom_user: string | Blob; nom_compl: string | Blob; edad: string | Blob; }, token: string){ 
+
+    return this.http.put(this.url_api + '/'+token, imgForm);
+  }
+
+  subidaImg(imgForm: FormData){
+    return this.http.post(this.url_api + '/subida', imgForm);
+  }
+  
 
 }

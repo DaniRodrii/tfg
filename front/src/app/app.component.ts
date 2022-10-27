@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from './servicios/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front';
-}
+  usuario={};
+
+  constructor(public servicio: UsuarioService,private router : Router) { }
+
+  ngOnInit(): void {
+    const token=localStorage.getItem('token')!;
+      this.servicio.editar(token).subscribe(
+        res => {
+          let user=JSON.stringify(res);
+          this.servicio.usuario=JSON.parse(user);
+        },
+        err => {
+           console.error(err);
+           alert("Error");
+        }
+      )
+  }
+}  

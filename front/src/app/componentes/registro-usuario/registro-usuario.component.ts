@@ -17,27 +17,23 @@ export class RegistroUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.registroForm = this.fb.group({
       nom_compl:[' ', [
-        Validators.required
+        
       ]],
       nom_user:[' ', [
-        Validators.required,
         Validators.minLength(6),
         Validators.maxLength(25),
         Validators.pattern(/^[a-zA-Z0-9]+$/)
       ]],
-      edad:[' ', [
-        Validators.required,
+      edad:[' ', [      
         Validators.min(18),
         Validators.max(90),
         Validators.pattern(/^[0-9]+$/)
 
       ]],
-      correo:[' ', [
-        Validators.required,
+      correo:[' ', [     
         Validators.email
       ]],
-      contrasena:[' ', [
-        Validators.required,
+      contrasena:[' ', [     
         Validators.minLength(6),
         Validators.maxLength(18)
       ]]

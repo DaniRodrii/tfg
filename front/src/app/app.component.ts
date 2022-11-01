@@ -13,7 +13,8 @@ export class AppComponent {
   constructor(public servicio: UsuarioService,private router : Router) { }
 
   ngOnInit(): void {
-    const token=localStorage.getItem('token')!;
+    if(localStorage.getItem('token')){
+      const token=localStorage.getItem('token')!;
       this.servicio.editar(token).subscribe(
         res => {
           let user=JSON.stringify(res);
@@ -24,5 +25,7 @@ export class AppComponent {
            alert("Error");
         }
       )
+
+    }
   }
 }  

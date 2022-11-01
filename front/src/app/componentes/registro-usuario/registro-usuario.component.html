@@ -1,25 +1,26 @@
-<div class="row">  
-    <div class="container">
+<div id="fondo">  
+    <div class="container" id="form_login">
         <form  [formGroup]="registroForm" (submit)="registrarse()">
+            <h1>Registrarse</h1>
             <div class="form-group">
                 <label for="nom_compl">Nombre completo</label>
-                <input type="text" formControlName="nom_compl" name="nom_compl" class="form-control" placeholder="Nombre completo" required><br>
+                <input type="text" formControlName="nom_compl" name="nom_compl" class="form-control"  required><br>
             </div>
             <div class="form-group">
                 <label for="nom_user">Nombre usuario</label>
-                <input type="text" formControlName="nom_user"  name="nom_user" class="form-control" placeholder="Nombre usuario" required><br>
+                <input type="text" formControlName="nom_user"  name="nom_user" class="form-control" required><br>
             </div>
             <div class="form-group">
                 <label for="edad">Edad</label>
-                <input type="number" formControlName="edad"   name="edad" class="form-control" placeholder="edad" required><br>
+                <input type="number" formControlName="edad"   name="edad" class="form-control" required><br>
             </div>
             <div class="form-group">
                 <label for="correo">Correo</label>
-                <input type="text" formControlName="correo"   name="correo" class="form-control" placeholder="correo" required><br>
+                <input type="text" formControlName="correo"   name="correo" class="form-control"  required><br>
             </div>
             <div class="form-group">
                 <label for="contrasena">Contraseña</label>
-                <input type="password" formControlName="contrasena"  name="contrasena" class="form-control" placeholder="contraseña" required><br>
+                <input type="password" formControlName="contrasena"  name="contrasena" class="form-control" required><br>
             </div>
             <button type="submit" class="btn" [disabled]="registroForm.invalid">Registrase</button>
             

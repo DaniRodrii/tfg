@@ -14,7 +14,8 @@ export class VerUserComponent implements OnInit {
   constructor(public servicio: UsuarioService,private router : Router, private renderer: Renderer2) { }
 
   ngOnInit(): void {
-    const token=localStorage.getItem('token')!;
+    if(localStorage.getItem('token')){
+      const token=localStorage.getItem('token')!;
       this.servicio.editar(token).subscribe(
         res => {
           let user=JSON.stringify(res);
@@ -25,6 +26,7 @@ export class VerUserComponent implements OnInit {
            alert("Error");
         }
       )
+    }
   }
 
   cerrarSesion(){

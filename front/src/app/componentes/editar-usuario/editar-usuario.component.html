@@ -1,7 +1,7 @@
-<div class="row"> 
+<div id="fondo"> 
     <div class="container">
-        <form  [formGroup]="editarForm" (submit)="editarUser()" enctype="multipart/form-data">
-            <img src="../../../assets/{{servicio.usuario.imagen}}" alt="imagen" class="img-perfil" ><br>
+        <form  [formGroup]="editarForm" (submit)="editarUser()" enctype="multipart/form-data" id="logueado">
+            <img src="../../../../../server/src/assets/{{servicio.usuario.imagen}}" alt="imagen" class="img-perfil" ><br>
             <div class="form-group">
                 <label for="imagen">Editar imagen</label>
                 <input type="file" name="imagen" class="form-control" placeholder="Editar imagen" (change)="obtenerFoto($event)"><br>
@@ -9,19 +9,19 @@
             </div>
             <div class="form-group">
                 <label for="nom_compl">Nombre completo: <b>{{servicio.usuario.nom_compl}}</b></label>
-                <input type="text" formControlName="nom_compl" name="nom_compl" class="form-control" placeholder="Editar nombre"><br>
+                <input type="text" formControlName="nom_compl" name="nom_compl" class="form-control"><br>
             </div>
             <div class="form-group">
                 <label for="nom_user">Nombre usuario: <b>{{servicio.usuario.nom_user}}</b></label>
-                <input type="text" formControlName="nom_user"  name="nom_user" class="form-control" placeholder="Editar usuario"><br>
+                <input type="text" formControlName="nom_user"  name="nom_user" class="form-control"><br>
             </div>
             <div class="form-group">
                 <label for="edad">Edad: <b>{{servicio.usuario.edad}}</b></label>
-                <input type="number" formControlName="edad"   name="edad" class="form-control" placeholder="Editar edad"><br>
+                <input type="number" formControlName="edad"   name="edad" class="form-control"><br>
             </div>
-            <button type="submit" class="btn">Editar</button>
-      
+            <button type="submit" class="btn">Editar</button><br>
+            <a routerLink="/verUser">Volver</a>
         </form>
     </div>
-    <a routerLink="/verUser">Volver</a>
+    
 </div>

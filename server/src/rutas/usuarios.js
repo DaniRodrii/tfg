@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const usuario = require('../funciones/FuncionesUser');
 const multer = require('multer');
+const jwt = require('jsonwebtoken');
+const user = require('../modelos/usuario');
 
 router.post('/registro', usuario.crearUser);
 router.post('/login', usuario.loguearUser);
@@ -23,14 +25,26 @@ const almacenarImg = multer.diskStorage({
     }
     
     
-})
+}) 
 
 const almacen = multer({storage: almacenarImg})
 
 
-router.post('/subida', almacen.single('img'), (req, res) => {
-    res.json()
+router.post('/subida/:id', almacen.single('img'), (req, res) => {
+    
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+
+    console.log(id);
+ 
+    user.findByIdAndUpdate(id, {'imagen':req.file.filename})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+
 
 });
-
+   
 module.exports = router; 

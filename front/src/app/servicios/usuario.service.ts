@@ -68,8 +68,8 @@ export class UsuarioService {
     return this.http.put(this.url_api + '/'+token, imgForm);
   }
 
-  subidaImg(imgForm: FormData){
-    return this.http.post(this.url_api + '/subida', imgForm);
+  subidaImg(imgForm: FormData, token: string){
+    return this.http.post(this.url_api + '/subida'+"/"+token, imgForm);
   }
   
 

@@ -1,7 +1,57 @@
-.img-perfil{
-    width:100px;
-    height: 100px;
-    border-radius: 50px;
-    margin: 10px 10px 10px 1px;
+#fondo{
+    background-image: url('../../../assets/fondo.jpg');   
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+} 
+
+#logueado{
+    border: 3px groove rgb(107, 106, 106);
+    background-color:#fdf5e6;
+    margin:auto;
+    display: block;
+    width: 600px;
+    padding:20px;
+}
+
+
+#logueado img{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    margin-bottom:15px;
+    margin-right: 20px;
+}
+
+#logueado a{
+    color:black;
+    margin-right: 20px;
+}
+
+#logueado a:hover{
+    color:rgb(38, 36, 163);
+    text-decoration: none;
+}
+
+#borrar_usuario{
+    justify-content: flex-end;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(167, 157, 148);
+    color:white;
+}
+
+
+#cerrar_sesion{
+    justify-content: flex-end;
+    float: right;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(167, 157, 148);
+    color:white;
+}
+
+#logueado button:hover{
+    background-color: rgb(171, 0, 206);
 }
 

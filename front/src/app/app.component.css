@@ -1,19 +1,25 @@
+nav{
+    background-color: rgb(14, 13, 13);
+}
+
 nav a{
+    margin-left: 50px;
+    font-size: 18px;
     color:white;
 }
 
 .img-perfil{
-    width:70px;
-    height: auto;
+    width: 80px;
+    height: 80px;
     border-radius: 50px;
-    margin: 10px 10px 10px 1px;
+    margin: 10px 0px 10px 0px;
     float: right;
 }
 
 .img-logo{
-    width:70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50px;
-    margin: 10px 10px 10px 1px;
+    margin: 10px 0px 10px 0px;
     float: right;
 }

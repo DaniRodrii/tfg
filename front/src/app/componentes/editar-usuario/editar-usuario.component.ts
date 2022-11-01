@@ -70,16 +70,17 @@ export class EditarUsuarioComponent implements OnInit {
 
   subirImg(){
     const imagen = new FormData();
+    const token=localStorage.getItem('token')!;
     imagen.append('img', this.imagenTmp.fileRaw, this.imagenTmp.fileName);
 
-    this.servicio.subidaImg(imagen).subscribe(
+    this.servicio.subidaImg(imagen, token).subscribe(
       res => {
-        console.log(res);
+        location.reload();
       },
       err => {
         console.error(err);
       }
     )
-  }
+  } 
 
 }

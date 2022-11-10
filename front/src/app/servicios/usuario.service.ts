@@ -32,7 +32,7 @@ export class UsuarioService {
     edad: 0,
     correo: '',
     contrasena: '',
-    imagen:'fotoperfil.png'
+    imagen:''
   }
 
   editUsuario: editarUsuario = {
@@ -68,9 +68,10 @@ export class UsuarioService {
     return this.http.put(this.url_api + '/'+token, imgForm);
   }
 
-  subidaImg(imgForm: FormData, token: string){
-    return this.http.post(this.url_api + '/subida'+"/"+token, imgForm);
-  }
+  subidaImg(img: FormData, token: string){
+    return this.http.post(this.url_api + '/subida'+"/"+token, img);
+    
+  } 
   
 
 }

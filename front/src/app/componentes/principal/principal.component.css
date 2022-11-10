@@ -1,4 +1,13 @@
 #fondo{
     background-image: url('../../../assets/fondo.jpg');   
     background-size: cover;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+#carrusel{
+    width:90%;
+    max-height: 60%;
+    margin:auto;
+    display:block;
 }

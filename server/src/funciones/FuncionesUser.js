@@ -57,7 +57,7 @@ funcionesUsuario.editarUsers = (req, res) => {
     console.log(req.params.id);
     console.log(req.body);
 
-
+ 
     // usuario.findByIdAndUpdate(req.params.id, req.body)
     //     .then((data) => res.json(data))
     //     .catch((error) => res.json({message: error}));
@@ -76,7 +76,17 @@ funcionesUsuario.borrarUsers = (req, res) => {
         .catch((error) => res.json({message: error}));
 };
  
+funcionesUsuario.subidaImg = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
 
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id; 
+    console.log(req.file.path);
+    usuario.findByIdAndUpdate(id, {'imagen':req.file.filename})
+        .then((data) => res.json(req.file.filename))
+        .catch((error) => res.json({message: error}));
+}
 
 
 

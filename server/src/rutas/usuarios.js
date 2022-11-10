@@ -20,31 +20,14 @@ const almacenarImg = multer.diskStorage({
         cb(null, `${fileName}.${extension}`)
     },
     
-    destination:function(req, file, cb)  {
-        cb(null, process.cwd()+`/src/assets`)
-    }
-    
-    
+    destination:`${__dirname}/../uploads`
 }) 
+
 
 const almacen = multer({storage: almacenarImg})
 
 
-router.post('/subida/:id', almacen.single('img'), (req, res) => {
-    
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
-
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
-
-    console.log(id);
- 
-    user.findByIdAndUpdate(id, {'imagen':req.file.filename})
-        .then((data) => res.json(data))
-        .catch((error) => res.json({message: error}));
+router.post('/subida/:id', almacen.single('imagen'), usuario.subidaImg);
 
 
-});
-   
 module.exports = router; 

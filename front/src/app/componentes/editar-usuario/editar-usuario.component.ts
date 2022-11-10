@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';  
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -11,33 +12,37 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class EditarUsuarioComponent implements OnInit {
 
   usuario={}
-  private imagenTmp:any;
-  constructor(public servicio: UsuarioService,private router : Router,  private fb: FormBuilder) { }
+  public fotos : any;
+  
+  constructor(public servicio: UsuarioService,private router : Router,  private fb: FormBuilder, private sanitizer: DomSanitizer) { }
   
   public editarForm!: FormGroup;
   
   ngOnInit(): void {
-      this.cargar();
+      if(localStorage.getItem('token')){
+        this.cargar();
 
-      this.editarForm = this.fb.group({
-        imagen:[' ', [
-          
-        ]],
-        nom_compl:[' ', [
-          
-        ]],
-        nom_user:[' ', [
-          Validators.minLength(6),
-          Validators.maxLength(25),
-          Validators.pattern(/^[a-zA-Z0-9]+$/)
-        ]],
-        edad:[' ', [      
-          Validators.min(18),
-          Validators.max(90),
-          Validators.pattern(/^[0-9]+$/)
-  
-        ]]
-      })
+        this.editarForm = this.fb.group({
+          imagen:[' ', [
+            
+          ]],
+          nom_compl:[' ', [
+            
+          ]],
+          nom_user:[' ', [
+            Validators.minLength(6),
+            Validators.maxLength(25),
+            Validators.pattern(/^[a-zA-Z0-9]+$/)
+          ]],
+          edad:[' ', [      
+            Validators.min(18),
+            Validators.max(90),
+            Validators.pattern(/^[0-9]+$/)
+    
+          ]]
+        })
+        
+      }
   }
  
   cargar(){
@@ -54,33 +59,24 @@ export class EditarUsuarioComponent implements OnInit {
         )
   }
 
-  obtenerFoto($event: any): void{
-    const [ img ] = $event.target.files;
-    this.imagenTmp = {
-      fileRaw:img,
-      fileName: img.name
-    }
-    console.log(this.imagenTmp);
+  obtenerFoto(event: any): void{
+    const  img  = event.target.files[0];
+    this.fotos=img;
   }
-  
+
   editarUser(){
     const token=localStorage.getItem('token')!;
     
   }
-
-  subirImg(){
-    const imagen = new FormData();
-    const token=localStorage.getItem('token')!;
-    imagen.append('img', this.imagenTmp.fileRaw, this.imagenTmp.fileName);
-
-    this.servicio.subidaImg(imagen, token).subscribe(
-      res => {
-        location.reload();
-      },
-      err => {
-        console.error(err);
-      }
-    )
-  } 
-
+ 
+  subirImg(): any{
+  const token=localStorage.getItem('token')!;
+  const img= new FormData;
+  img.append('imagen', this.fotos);
+  this.servicio.subidaImg(img, token).subscribe(
+    res => {
+      console.log(res);
+    }
+  )     
+  }
 }

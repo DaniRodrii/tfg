@@ -63,9 +63,9 @@ export class UsuarioService {
     return this.http.delete(this.url_api + '/'+token);
   }
  
-  editarUsuario(imgForm: FormData, formulario: { nom_user: string | Blob; nom_compl: string | Blob; edad: string | Blob; }, token: string){ 
+  editarUsuario(EditarUser: editarUsuario, token: string){ 
 
-    return this.http.put(this.url_api + '/'+token, imgForm);
+    return this.http.put(this.url_api + '/'+token, EditarUser);
   }
 
   subidaImg(img: FormData, token: string){

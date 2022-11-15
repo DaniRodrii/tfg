@@ -38,6 +38,10 @@ export class RegistroUsuarioComponent implements OnInit {
       contrasena:[' ', [     
         Validators.minLength(6),
         Validators.maxLength(18)
+      ]],
+      contrasenaRep:[' ', [     
+        Validators.minLength(6),
+        Validators.maxLength(18)
       ]]
     })
   }
@@ -45,6 +49,9 @@ export class RegistroUsuarioComponent implements OnInit {
    
 
   registrarse(){
+    if(this.registroForm.value.contrasenaRep == this.registroForm.value.contrasena){
+      this.registroForm.removeControl('contrasenaRep');
+
       this.servicio.registro(this.registroForm.value).subscribe(
         res => {
           localStorage.setItem('token', JSON.stringify(res));
@@ -58,7 +65,10 @@ export class RegistroUsuarioComponent implements OnInit {
           alert(err.error.message);
         }
       )
-    
+    }else{
+      alert("Contraseñas no coincidentes");
+      this.registroForm.addControl('contrasenaRep', this.registroForm.value.contrasenaRep);
+    }    
     
   }
 

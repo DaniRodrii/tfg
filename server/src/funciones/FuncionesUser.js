@@ -2,6 +2,7 @@
 const usuario = require('../modelos/usuario');
 const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
+const bcrypt = require("bcryptjs");
 
 //Crear usuario
 funcionesUsuario.crearUser = async (req, res) => {
@@ -26,9 +27,20 @@ funcionesUsuario.crearUser = async (req, res) => {
             success: false
         })
     }
+
+    bcrypt.hash(user.contrasena, 10, (err, palabraSecretaEncriptada) => {
+        if (err) {
+            console.log("Error hasheando:", err);
+        } else {
+            user.contrasena=palabraSecretaEncriptada;
+            user.save();
+            return res.status(200).json(token);
+        }
+    });
     
-    await user.save();
-    return res.status(200).json(token);
+    
+
+    
         
   
 };

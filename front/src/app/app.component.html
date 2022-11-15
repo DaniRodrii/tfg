@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNav">
         <img src="../assets/logo.jpeg" alt="img" class="img-logo" routerLink="/"><span id="nombreLogo">Gestaurante</span>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" *ngIf="ver">
           <li class="nav-item">
             <a class="nav-link" href="#">Añadir</a>
           </li>
@@ -11,7 +11,7 @@
             <a class="nav-link" href="#">Editar</a>
           </li>
          </ul>
-         <div id="contenedorImg">
+         <div id="contenedorImg" *ngIf="ver">
             <img src="http://localhost:4000/{{servicio.usuario.imagen}}" alt="img" class="img-perfil" routerLink="/verUser">
          </div>
         </div>

@@ -66,56 +66,40 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   editarUser(){
-    const token=localStorage.getItem('token')!;
+    const token = localStorage.getItem('token')!;
 
-    this.servicio.editar(token).subscribe(
-          res => {
-            let user=JSON.stringify(res);
-            this.servicio.usuario=JSON.parse(user);
+    this.editarForm.removeControl('imagen');
 
-            console.log(this.servicio.usuario);
+    console.log(this.editarForm.value);
 
-            this.editarForm.removeControl('imagen');
-  
-            if(this.editarForm.value.nom_compl.length < 6 && 
-              this.editarForm.value.nom_compl == this.servicio.usuario.nom_compl){
-                this.editarForm.removeControl('nom_compl');
-            }
-        
-            if(this.editarForm.value.nom_user.length < 6 && 
-              this.editarForm.value.nom_user == this.servicio.usuario.nom_user){
-                this.editarForm.removeControl('nom_user');
-            }
 
-          })
-    
-    // this.editarForm.removeControl('imagen');
+    if (this.editarForm.value.nom_compl.length < 6) {
+      this.editarForm.removeControl('nom_compl');
+    }
 
-  
-    //   if(this.editarForm.value.nom_compl.length < 6 ){
-    //     this.editarForm.removeControl('nom_compl');
-    //   }
-  
-    //   if(this.editarForm.value.nom_user.length < 6 ){
-    //     this.editarForm.removeControl('nom_user');
-    //   }
-    
-    // if(JSON.stringify(this.editarForm.value) === '{}'){
-    //   alert("No se puede enviar un formulario vacío");
-    //   this.router.navigate(["/verUser"]);
-    // }else{
-    //   this.servicio.editarUsuario(this.editarForm.value, token).subscribe(
-    //     res => {
-    //       console.log(res);
-    //       // location.reload();
-    //     }, 
-    //     err =>{
-    //        console.log(err);
-    //       // location.reload();
-    //     })
-    // }
+    if (this.editarForm.value.nom_user.length < 6) {
+      this.editarForm.removeControl('nom_user');
+    }
 
-    
+    if (this.editarForm.value.edad.length < 2) {
+      this.editarForm.removeControl('edad');
+    }
+
+    if (JSON.stringify(this.editarForm.value) === '{}') {
+      alert("No se puede enviar un formulario vacío");
+      this.router.navigate(["/verUser"]);
+    } else {
+      this.servicio.editarUsuario(this.editarForm.value, token).subscribe(
+        res => {
+          console.log(res);
+          location.reload();
+        },
+        err => {
+          console.log(err);
+          // location.reload();
+        });
+    }
+
   }
  
   subirImg(): any{

@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';      
+import { Router } from '@angular/router';     
+
 
 @Component({
   selector: 'app-principal',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-
+  
   constructor(private router : Router, private renderer: Renderer2 ) { }
 
   ngOnInit(): void {
@@ -26,6 +27,8 @@ export class PrincipalComponent implements OnInit {
     this.renderer.setStyle(img, 'margin-right', '10px');
     
     this.renderer.appendChild(navBar, a);
+    
   }
 
+  
 }

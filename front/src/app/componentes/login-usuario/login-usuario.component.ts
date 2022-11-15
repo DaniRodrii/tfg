@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
+
 @Component({
   selector: 'app-login-usuario',
   templateUrl: './login-usuario.component.html',
@@ -33,7 +34,10 @@ export class LoginUsuarioComponent implements OnInit {
       res => {
         localStorage.setItem('token', JSON.stringify(res));
         alert("Usuario logueado");
-        this.router.navigate(['/']);
+        this.router.navigate(['/'])
+          .then(() => {
+            window.location.reload();
+          });
       },
       err => {
          console.error(err);

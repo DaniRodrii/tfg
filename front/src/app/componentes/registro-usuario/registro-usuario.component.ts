@@ -14,6 +14,8 @@ export class RegistroUsuarioComponent implements OnInit {
 
   constructor(public servicio: UsuarioService, private router: Router, private fb: FormBuilder) { }
   public registroForm!: FormGroup;
+  resultado!: string;
+
   ngOnInit(): void {
     this.registroForm = this.fb.group({
       nom_compl:[' ', [
@@ -41,18 +43,26 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
    
+
   registrarse(){
-    this.servicio.registro(this.registroForm.value).subscribe(
-      res => {
-        localStorage.setItem('token', JSON.stringify(res));
-        alert("Usuario registrado");
-        this.router.navigate(['/']);
-      },
-      err => {
-        console.error(err);
-        alert("Error");
-      }
-    )
+
+    if (this.registroForm.valid){
+      this.servicio.registro(this.registroForm.value).subscribe(
+        res => {
+          localStorage.setItem('token', JSON.stringify(res));
+          alert("Usuario registrado");
+          this.router.navigate(['/']); 
+        },
+        err => {
+          console.error(err);
+          alert("Error");
+        }
+      )
+    }else{
+      this.resultado = "Hay datos inválidos en el formulario";
+    }
+
+    
   }
 
 }

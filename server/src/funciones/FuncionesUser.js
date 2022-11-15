@@ -60,18 +60,13 @@ funcionesUsuario.editarUsers = (req, res) => {
     const tokenDecode=jwt.decode(tokenSplit);
     const id=tokenDecode._id;
 
-    usuario.findById(id);
 
-    if(usuario.nom_compl === req.body.nom_compl ){
-        return res.status(401).send('El nombre completo ya existe');
-    }
+    console.log(req.body);
 
-    if(usuario.nom_user === req.body.nom_user){
-        return res.status(401).send('El nombre de usuario ya existe');
-    }
-    
-    usuario.findByIdAndUpdate(id, req.body);
-    return res.status(200).send('Usuario actualizado');
+    usuario.findByIdAndUpdate(id, req.body)
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+
 };
 
 //Borrar usuarios

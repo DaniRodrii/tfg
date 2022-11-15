@@ -39,10 +39,9 @@ export class LoginUsuarioComponent implements OnInit {
           .then(() => {
             window.location.reload();
           });
-      },
+      }, 
       err => {
-         console.error(err);
-         alert("Error");
+         alert(err.error.message);
       }
     )
   }

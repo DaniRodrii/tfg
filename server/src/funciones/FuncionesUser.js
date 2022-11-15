@@ -49,16 +49,30 @@ funcionesUsuario.crearUser = async (req, res) => {
 funcionesUsuario.loguearUser = async (req, res) => {
     const user = await usuario.findOne({correo: req.body.correo});
     if(!user){
-        return res.status(401).send('El email no existe');
+        return res.status(400).json({
+            message: "El correo no existe",
+            success: false
+        })
     }
 
-    if(user.contrasena !== req.body.contrasena){
-        return res.status(401).send('Contraseña erronea');
-    }
-
-
-    const token=jwt.sign({_id: user._id}, 'auth');
-    return res.status(200).json(token);
+    bcrypt.compare(req.body.contrasena, user.contrasena, (err, coinciden) => {
+        if (err) {
+            return res.status(400).json({
+                message: "Contraseña erronea",
+                success: false
+            })
+        } else {
+            if(coinciden){
+                const token=jwt.sign({_id: user._id}, 'auth');
+                return res.status(200).json(token);
+            }else{
+                return res.status(400).json({
+                    message: "Contraseña erronea",
+                    success: false
+                })
+            }
+        }
+    });
 
 } 
 

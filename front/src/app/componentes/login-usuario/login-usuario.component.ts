@@ -46,4 +46,8 @@ export class LoginUsuarioComponent implements OnInit {
     )
   }
 
+  recuperar(){
+    
+  }
+
 }

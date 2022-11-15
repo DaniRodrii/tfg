@@ -1,4 +1,24 @@
 <div id="fondo">
+
+  <!-- Modal -->
+  <div class="modal fade" id="ModalRecuContra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseñaws</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Si ha perdido/no recuerda su contraseña pulse en el siguiente enlace para obtener una nueva contraseña
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
+          <button type="button" class="btn btn-secondary" (click)="recuperar()">Recuperar contraseña</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="container" id="form_login">
         <form  [formGroup]="loginForm" (submit)="loguearse()">
             <h1>Iniciar Sesión</h1>
@@ -12,7 +32,8 @@
             </div>
             <button type="submit" class="btn" [disabled]="loginForm.invalid">Loguearse</button>
           </form>
-        <a routerLink="/registroUser">Registrarse</a>
+        <a routerLink="/registroUser">Registrarse</a><br>
+        <button type="submit" class="btn" data-bs-toggle="modal" data-bs-target="#ModalRecuContra" id="recuContra">¿Has olvidado tu contraseña?</button>
     </div>
 </div> 
 

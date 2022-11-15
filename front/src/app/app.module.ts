@@ -14,6 +14,7 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
 
 import { AuthGuard } from './auth.guard';
 import { VerUserComponent } from './componentes/ver-user/ver-user.component';
+import { RecuContraComponent } from './componentes/recu-contra/recu-contra.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { VerUserComponent } from './componentes/ver-user/ver-user.component';
     EditarUsuarioComponent,
     AdminUsuariosComponent,
     PrincipalComponent,
-    VerUserComponent
+    VerUserComponent,
+    RecuContraComponent
   ],
   imports: [
     BrowserModule,

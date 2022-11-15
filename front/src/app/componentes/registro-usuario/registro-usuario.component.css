@@ -73,5 +73,5 @@ input.ng-invalid.ng-touched{
 }
 
 input.ng-invalid.ng-touched{
-    border-bottom:1px solid red;
+    border-bottom:1px solid red !important;
 }

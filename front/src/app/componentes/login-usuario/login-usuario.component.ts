@@ -27,6 +27,7 @@ export class LoginUsuarioComponent implements OnInit {
         Validators.maxLength(18)
       ]]
     })
+
   }
 
   loguearse(){

@@ -45,23 +45,21 @@ export class RegistroUsuarioComponent implements OnInit {
    
 
   registrarse(){
-
-    if (this.registroForm.valid){
       this.servicio.registro(this.registroForm.value).subscribe(
         res => {
           localStorage.setItem('token', JSON.stringify(res));
           alert("Usuario registrado");
-          this.router.navigate(['/']); 
+          this.router.navigate(['/'])
+            .then(() => {
+              window.location.reload();
+            });
         },
         err => {
           console.error(err);
           alert("Error");
         }
       )
-    }else{
-      this.resultado = "Hay datos inválidos en el formulario";
-    }
-
+    
     
   }
 

@@ -3,6 +3,7 @@ const usuario = require('../modelos/usuario');
 const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
 const bcrypt = require("bcryptjs");
+const  enviarMail = require('../funciones/enviarMail')
 
 //Crear usuario
 funcionesUsuario.crearUser = async (req, res) => {
@@ -34,16 +35,14 @@ funcionesUsuario.crearUser = async (req, res) => {
         } else {
             user.contrasena=palabraSecretaEncriptada;
             user.save();
+            enviarMail(user.correo, user.nom_compl);
             return res.status(200).json(token);
         }
-    });
-    
-    
-
-    
-        
+    }); 
   
 };
+
+
 
 //login
 funcionesUsuario.loguearUser = async (req, res) => {

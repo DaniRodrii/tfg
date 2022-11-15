@@ -4,12 +4,30 @@ const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
 
 //Crear usuario
-funcionesUsuario.crearUser = (req, res) => {
+funcionesUsuario.crearUser = async (req, res) => {
     const user = usuario(req.body);
     user.imagen='fotoperfil.png';
     const token=jwt.sign({_id: user._id}, 'auth');
-    user.save();
 
+    console.log(user);
+
+    let usuarioEncontrado = await usuario.findOne({nom_user: user.nom_user});
+    if(usuarioEncontrado){
+        return res.status(400).json({
+            message: "El nombre de usuario ya existe",
+            success: false
+        })
+    }
+
+    usuarioEncontrado = await usuario.findOne({correo: user.correo});
+    if(usuarioEncontrado){
+        return res.status(400).json({
+            message: "El correo ya existe",
+            success: false
+        })
+    }
+    
+    await user.save();
     return res.status(200).json(token);
         
   

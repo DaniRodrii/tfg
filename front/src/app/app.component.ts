@@ -33,8 +33,6 @@ export class AppComponent {
     }else{
       this.ver=false;
     }
-
-    console.log(this.ver);
   }
 
   

@@ -50,13 +50,12 @@ export class RegistroUsuarioComponent implements OnInit {
           localStorage.setItem('token', JSON.stringify(res));
           alert("Usuario registrado");
           this.router.navigate(['/'])
-            .then(() => {
-              window.location.reload();
-            });
+          .then(() => {
+            window.location.reload();
+          });
         },
         err => {
-          console.error(err);
-          alert("Error");
+          alert(err.error.message);
         }
       )
     
@@ -64,3 +63,4 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
 }
+

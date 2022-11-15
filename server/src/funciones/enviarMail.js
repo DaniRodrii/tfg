@@ -2,7 +2,7 @@
  const nodemailer = require('nodemailer');
 
 
-const mail=enviarMailControlador.sendMail = (correo, nombre) => {
+const mail=enviarMailControlador.sendMail = (correo, mensaje) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -11,7 +11,7 @@ const mail=enviarMailControlador.sendMail = (correo, nombre) => {
         }
       });
 
-      var mensaje = "Hola "+nombre+" usted se ha registrado en Gestaurante, disfrute de la experiencia.";
+      
       
       var mailOptions = {
         from: 'gestauranteempresa@gmail.com',

@@ -35,7 +35,8 @@ funcionesUsuario.crearUser = async (req, res) => {
         } else {
             user.contrasena=palabraSecretaEncriptada;
             user.save();
-            enviarMail(user.correo, user.nom_compl);
+            var mensaje = "Hola "+user.nom_compl+" usted se ha registrado en Gestaurante, disfrute de la experiencia.";
+            enviarMail(user.correo, mensaje);
             return res.status(200).json(token);
         }
     }); 

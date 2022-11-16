@@ -17,7 +17,7 @@ const DatosRestaurante = mongoose.Schema({
     },
 
     mesas: {
-        type: String,
+        type: Number,
         require: true
     },
 
@@ -31,3 +31,5 @@ const DatosRestaurante = mongoose.Schema({
         require: true
     }
 });
+
+module.exports = mongoose.model('Restaurante', DatosRestaurante);

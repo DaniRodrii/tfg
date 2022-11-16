@@ -15,6 +15,7 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
 import { AuthGuard } from './auth.guard';
 import { VerUserComponent } from './componentes/ver-user/ver-user.component';
 import { RecuContraComponent } from './componentes/recu-contra/recu-contra.component';
+import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RecuContraComponent } from './componentes/recu-contra/recu-contra.compo
     AdminUsuariosComponent,
     PrincipalComponent,
     VerUserComponent,
-    RecuContraComponent
+    RecuContraComponent,
+    AniadirRestComponent
   ],
   imports: [
     BrowserModule,

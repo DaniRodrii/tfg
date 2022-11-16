@@ -8,6 +8,7 @@ import { PrincipalComponent } from './componentes/principal/principal.component'
 import { AuthGuard } from './auth.guard';
 import { VerUserComponent } from './componentes/ver-user/ver-user.component';
 import { RecuContraComponent } from './componentes/recu-contra/recu-contra.component';
+import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.component';
 
 const routes: Routes = [
   {path:'registroUser', component:RegistroUsuarioComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'loginUser', component:LoginUsuarioComponent},
   {path:'editarUser', component:EditarUsuarioComponent, canActivate: [AuthGuard]},
   {path:'verUser', component:VerUserComponent, canActivate: [AuthGuard]},
-  {path:'recuperarContraseña', component:RecuContraComponent}
+  {path:'recuperarContraseña', component:RecuContraComponent},
+  {path:'aniadirRest', component:AniadirRestComponent}
 ];
 
 @NgModule({

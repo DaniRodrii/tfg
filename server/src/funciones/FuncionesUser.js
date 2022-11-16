@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
 const bcrypt = require("bcryptjs");
 const  enviarMail = require('../funciones/enviarMail');
-const {localStorage} = require("node-localstorage").LocalStorage;
 
 //Crear usuario
 funcionesUsuario.crearUser = async (req, res) => {

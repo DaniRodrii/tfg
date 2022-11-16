@@ -5,16 +5,21 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseñaws</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Recuperar contraseña</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Si ha perdido/no recuerda su contraseña pulse en el siguiente enlace para obtener una nueva contraseña
+          Si ha perdido/no recuerda su contraseña introduzca su email y pulse en el siguiente enlace para obtener una nueva contraseña
         </div>
+        <form  [formGroup]="recuForm">
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Introduzca el email" formControlName="correoRecu" name="correoRecu">
+          </div><br>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
-          <button type="button" class="btn btn-secondary" (click)="recuperar()">Recuperar contraseña</button>
+          <button type="button" class="btn btn-secondary recu" (click)="recuperar()" [disabled]="recuForm.invalid">Recuperar contraseña</button>
         </div>
+        </form>
       </div>
     </div>
   </div>

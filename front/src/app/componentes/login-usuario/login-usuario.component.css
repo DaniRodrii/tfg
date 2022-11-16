@@ -20,7 +20,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+ 
 
 #form_login form input{
     border: none;
@@ -69,6 +69,10 @@
 #form_login a:hover{
     color:rgb(38, 36, 163);
     text-decoration: none;
+}
+
+.recu:hover{
+    background-color: rgb(0, 153, 255);
 }
 
 input.ng-invalid.ng-touched{

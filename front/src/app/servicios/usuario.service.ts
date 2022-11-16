@@ -71,7 +71,16 @@ export class UsuarioService {
   subidaImg(img: FormData, token: string){
     return this.http.post(this.url_api + '/subida'+"/"+token, img);
     
+  }
+  
+  recuContrasena(recu: FormData){
+    return this.http.post(this.url_api + '/recu', recu);
+    
   } 
+
+  contraseñaRecuperada(recu: FormData, token: string){
+    return this.http.put(this.url_api + '/recuContra'+"/"+token, recu);
+  }
   
 
 }

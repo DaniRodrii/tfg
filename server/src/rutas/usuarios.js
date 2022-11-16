@@ -7,6 +7,8 @@ const user = require('../modelos/usuario');
 
 router.post('/registro', usuario.crearUser);
 router.post('/login', usuario.loguearUser);
+router.post('/recu', usuario.recuContra);
+router.put('/recuContra/:id', usuario.recuperacion);
 router.get('/', usuario.obtenerUsers);
 router.get('/:id', usuario.obtenerUser);
 router.put('/:id', usuario.editarUsers);
@@ -26,7 +28,7 @@ const almacenarImg = multer.diskStorage({
 
 const almacen = multer({storage: almacenarImg})
 
-
+ 
 router.post('/subida/:id', almacen.single('imagen'), usuario.subidaImg);
 
 

@@ -15,6 +15,7 @@ export class LoginUsuarioComponent implements OnInit {
 
   constructor(public servicio: UsuarioService, private router: Router, private fb: FormBuilder) { }
   public loginForm!: FormGroup;
+  public recuForm!: FormGroup;
   ngOnInit(): void {  
     this.loginForm = this.fb.group({
       correo:[' ', [
@@ -28,6 +29,12 @@ export class LoginUsuarioComponent implements OnInit {
       ]]
     })
 
+    this.recuForm = this.fb.group({
+      correoRecu:[' ', [
+        Validators.required,
+        Validators.email
+      ]]
+    })
   }
 
   loguearse(){
@@ -47,7 +54,16 @@ export class LoginUsuarioComponent implements OnInit {
   }
 
   recuperar(){
-    
+    this.servicio.recuContrasena(this.recuForm.value).subscribe(
+      res => {
+        localStorage.setItem('recu', JSON.stringify(res));
+        alert("Le hemos enviado un correo");
+        location.reload();
+      }, 
+      err => {
+         alert(err.error.message);
+      }
+    )
   }
 
 }

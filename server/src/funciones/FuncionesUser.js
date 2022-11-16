@@ -3,7 +3,8 @@ const usuario = require('../modelos/usuario');
 const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
 const bcrypt = require("bcryptjs");
-const  enviarMail = require('../funciones/enviarMail')
+const  enviarMail = require('../funciones/enviarMail');
+const {localStorage} = require("node-localstorage").LocalStorage;
 
 //Crear usuario
 funcionesUsuario.crearUser = async (req, res) => {
@@ -126,6 +127,7 @@ funcionesUsuario.borrarUsers = (req, res) => {
         .catch((error) => res.json({message: error}));
 };
  
+//Subir imagen a la bbdd
 funcionesUsuario.subidaImg = (req, res) => {
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
@@ -137,9 +139,42 @@ funcionesUsuario.subidaImg = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+//Recuperar contraseña
+funcionesUsuario.recuContra = async (req, res) => {
+    const user = await usuario.findOne({correo: req.body.correoRecu});
 
+    if(!user){
+        return res.status(400).json({
+            message: "El usuario no existe",
+            success: false
+        })
+    }
 
+    const token=jwt.sign({_id: user._id}, 'auth');
 
+    var mensaje = "Para recuperar su contraseña, pulse en el siguiente enlace http://localhost:4200/recuperarContrase%C3%B1a";
+    enviarMail(req.body.correoRecu, mensaje);
+    return res.status(200).json(token);
+}
+
+//Nueva contraseña recuperada
+funcionesUsuario.recuperacion = async (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+    
+    bcrypt.hash(req.body.contrasena, 10, (err, palabraSecretaEncriptada) => {
+        if (err) {
+            console.log("Error hasheando:", err);
+        } else {
+            usuario.findByIdAndUpdate(id, {contrasena:palabraSecretaEncriptada})
+            .then((data) => res.json(data))
+            .catch((error) => res.json({message: error}));
+        }
+    }); 
+}   
 
 module.exports = funcionesUsuario;
 

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';  
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -55,7 +56,6 @@ export class EditarUsuarioComponent implements OnInit {
           },
           err => {
              console.error(err);
-             alert("Error");
           }
         )
   }
@@ -86,8 +86,17 @@ export class EditarUsuarioComponent implements OnInit {
     }
 
     if (JSON.stringify(this.editarForm.value) === '{}') {
-      alert("No se puede enviar un formulario vacío");
-      this.router.navigate(["/verUser"]);
+      swal.fire({
+        title: 'Error',  
+        text: 'No se puede enviar formularios vacios',  
+        icon: 'warning',
+        width: 400,
+        color:'white',
+        background:'#8c004b'
+
+       }).then(()=>{
+          this.router.navigate(["/verUser"]);
+       });
     } else {
       this.servicio.editarUsuario(this.editarForm.value, token).subscribe(
         res => {

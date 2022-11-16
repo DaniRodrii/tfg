@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-ver-user',
@@ -23,7 +24,6 @@ export class VerUserComponent implements OnInit {
         },
         err => {
            console.error(err);
-           alert("Error");
         }
       )
     }
@@ -39,13 +39,18 @@ export class VerUserComponent implements OnInit {
       const token=localStorage.getItem('token')!;
         this.servicio.borrarUser(token).subscribe(
           res => {
-            alert("Usuario borrado")
-            localStorage.removeItem('token');
-            this.router.navigate(['loginUser']);
+            swal.fire({
+              title: 'Usuario borrado', 
+              icon: 'success',
+              width: 400,
+             }).then(()=>{
+              localStorage.removeItem('token');
+              this.router.navigate(['loginUser']);
+             });
           },
           err => {
              console.error(err);
-             alert("Error");
+             
           }
         )
         

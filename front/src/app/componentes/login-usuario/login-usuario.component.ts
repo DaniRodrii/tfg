@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import swal from'sweetalert2';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class LoginUsuarioComponent implements OnInit {
   constructor(public servicio: UsuarioService, private router: Router, private fb: FormBuilder) { }
   public loginForm!: FormGroup;
   public recuForm!: FormGroup;
+  tituloAlerta: string = '';
   ngOnInit(): void {  
     this.loginForm = this.fb.group({
       correo:[' ', [
@@ -41,14 +43,22 @@ export class LoginUsuarioComponent implements OnInit {
     this.servicio.login(this.loginForm.value).subscribe(
       res => {
         localStorage.setItem('token', JSON.stringify(res));
-        alert("Usuario logueado");
         this.router.navigate(['/'])
           .then(() => {
             window.location.reload();
           });
       }, 
       err => {
-         alert(err.error.message);
+        console.log(err.error.message)
+        this.tituloAlerta=JSON.stringify(err.error.message);
+        let alerta=this.tituloAlerta.replace(/['"]+/g, '');
+         swal.fire({
+          title: 'Error',  
+          text: alerta,  
+          icon: 'error',
+          width: 400,
+          background:'#ffbdb9'
+         });
       }
     )
   }
@@ -57,11 +67,25 @@ export class LoginUsuarioComponent implements OnInit {
     this.servicio.recuContrasena(this.recuForm.value).subscribe(
       res => {
         localStorage.setItem('recu', JSON.stringify(res));
-        alert("Le hemos enviado un correo");
-        location.reload();
+        swal.fire({
+          title: 'Recuperar contraseña',  
+          text: 'Le hemos enviado un correo',  
+          icon: 'info',
+          width: 400,
+         }).then(()=>{
+          location.reload();
+         })
       }, 
       err => {
-         alert(err.error.message);
+        this.tituloAlerta=JSON.stringify(err.error.message);
+        let alerta=this.tituloAlerta.replace(/['"]+/g, '');
+         swal.fire({
+          title: 'Error',  
+          text: alerta,  
+          icon: 'error',
+          width: 400,
+          background:'#ffbdb9'
+         });
       }
     )
   }

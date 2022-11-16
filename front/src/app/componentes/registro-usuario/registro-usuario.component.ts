@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService} from '../../servicios/usuario.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -15,6 +16,7 @@ export class RegistroUsuarioComponent implements OnInit {
   constructor(public servicio: UsuarioService, private router: Router, private fb: FormBuilder) { }
   public registroForm!: FormGroup;
   resultado!: string;
+  tituloAlerta: string = '';
 
   ngOnInit(): void {
     this.registroForm = this.fb.group({
@@ -55,18 +57,33 @@ export class RegistroUsuarioComponent implements OnInit {
       this.servicio.registro(this.registroForm.value).subscribe(
         res => {
           localStorage.setItem('token', JSON.stringify(res));
-          alert("Usuario registrado");
           this.router.navigate(['/'])
           .then(() => {
             window.location.reload();
           });
         },
         err => {
-          alert(err.error.message);
+          this.tituloAlerta=JSON.stringify(err.error.message);
+        let alerta=this.tituloAlerta.replace(/['"]+/g, '');
+         swal.fire({
+          title: 'Error',  
+          text: alerta,  
+          icon: 'error',
+          width: 400,
+          background:'#ffbdb9'
+         });
+         this.ngOnInit();
         }
       )
     }else{
-      alert("Contraseñas no coincidentes");
+         swal.fire({
+          title: 'Error',  
+          text: 'Contraseñas no coincidentes',  
+          icon: 'warning',
+          width: 400,
+          color:'white',
+          background:'#8c004b'
+         });
       this.registroForm.addControl('contrasenaRep', this.registroForm.value.contrasenaRep);
     }    
     

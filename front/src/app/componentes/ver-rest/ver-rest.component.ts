@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestauranteService } from 'src/app/servicios/restaurante.service';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-ver-rest',
@@ -24,7 +25,11 @@ export class VerRestComponent implements OnInit {
         err => {
           console.log(err)
         }
-      )
+      ) 
+    }
+
+    if(localStorage.getItem('rest')){
+      localStorage.removeItem('rest');
     }
   }
 
@@ -32,6 +37,22 @@ export class VerRestComponent implements OnInit {
     this.servicio.cifrarId(id).subscribe(
     res=>{
       localStorage.setItem('rest', JSON.stringify(res));
+    }
+      )
+  }
+
+  borrar(){
+    const id=localStorage.getItem('rest')!;
+    this.servicio.borrarRest(id).subscribe(
+    res=>{
+      swal.fire({
+        title: 'Usuario borrado', 
+        icon: 'success',
+        width: 400,
+       }).then(()=>{
+        localStorage.removeItem('rest');
+        this.ngOnInit();
+       });
     }
       )
   }

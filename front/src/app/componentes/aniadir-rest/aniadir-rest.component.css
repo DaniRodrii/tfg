@@ -69,9 +69,5 @@
 }
 
 input.ng-invalid.ng-touched{
-    border-bottom:1px solid red;
-}
-
-input.ng-invalid.ng-touched{
     border-bottom:1px solid red !important;
 }

@@ -1,3 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="modalBorrarRest" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Borrar Restaurante</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguro de que quiere borrar el restaurante?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="borrar()" data-bs-dismiss="modal">Borrar Restaurante</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <div id="fondo">
     <div class="container">
       <div id="verRest">
@@ -15,15 +35,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let rest of servicio.rest">
+                <tr *ngFor="let rest of servicio.rest" >
                     <td>{{rest.nom_rest}}</td>
                     <td>{{rest.nom_dueno}}</td>
                     <td>{{rest.telefono}}</td>
                     <td>{{rest.mesas}}</td>
                     <td>{{rest.direccion}}</td>
                     <td><a routerLink="/"><i class="pi pi-user iconos" (click)="subir(rest._id)"></i></a></td>
-                    <td><a routerLink="/"><i class="pi pi-pencil iconos_editar" (click)="subir(rest._id)"></i></a></td>
-                    <td><a routerLink="/"><i class="pi pi-trash iconos_borrar" (click)="subir(rest._id)"></i></a></td>
+                    <td ><a routerLink="/editarRest" ><span class="pi pi-pencil iconos_editar" (mouseover)="subir(rest._id)"></span></a></td>
+                    <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarRest" class="borrar_rest"><i class="pi pi-trash iconos_borrar" (click)="subir(rest._id)"></i>.</button></td>
                 </tr>
             </tbody>
         </table>

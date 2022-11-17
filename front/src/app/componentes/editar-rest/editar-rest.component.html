@@ -1,0 +1,30 @@
+<div id="fondo"> 
+    <div class="container" id="editarest">
+        <form  [formGroup]="editarRestForm" (submit)="editarRest()">
+            <h1>Añadir restaurante</h1>
+            <div class="form-group">
+                <label for="nom_rest">Nombre restaurante: <b>{{servicioRest.restaur.nom_rest}}</b></label>
+                <input type="text" formControlName="nom_rest" name="nom_rest" class="form-control" ><br>
+            </div>
+            <div class="form-group">
+                <label for="nom_dueno">Nombre dueño: <b>{{servicioRest.restaur.nom_dueno}}</b></label>
+                <input type="text" formControlName="nom_dueno"  name="nom_dueno" class="form-control"><br>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Telefono: <b>{{servicioRest.restaur.telefono}}</b></label>
+                <input type="number" formControlName="telefono"   name="telefono" class="form-control"><br>
+            </div>
+            <div class="form-group">
+                <label for="mesas">Mesas: <b>{{servicioRest.restaur.mesas}}</b></label>
+                <input type="number" formControlName="mesas"   name="mesas" class="form-control" ><br>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección: <b>{{servicioRest.restaur.direccion}}</b></label>
+                <input type="text" formControlName="direccion"  name="direccion" class="form-control"><br>
+            </div>
+            <button type="submit" class="btn" [disabled]="editarRestForm.invalid">Añadir</button>
+        </form>
+        <a routerLink="/verRestaurante" >Volver</a>
+    </div>
+    
+</div>

@@ -33,16 +33,40 @@ funcionesRestaurante.cifrarId = (req, res) => {
     return res.status(200).json(token);
 }
 
-funcionesRestaurante.obtenerRest = (req, res) => {
+funcionesRestaurante.obtenerRest = async (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
 
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+    
+    await restaurante.findById(id)
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
 }
 
 funcionesRestaurante.editarRest = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
 
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+
+    restaurante.findByIdAndUpdate(id, req.body)
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
 }
 
 funcionesRestaurante.borrarRest = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
 
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id; 
+
+    restaurante.findByIdAndDelete(id)
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
 }
 
 module.exports = funcionesRestaurante;

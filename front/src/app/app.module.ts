@@ -17,6 +17,7 @@ import { VerUserComponent } from './componentes/ver-user/ver-user.component';
 import { RecuContraComponent } from './componentes/recu-contra/recu-contra.component';
 import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.component';
 import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
+import { EditarRestComponent } from './componentes/editar-rest/editar-rest.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
     VerUserComponent,
     RecuContraComponent,
     AniadirRestComponent,
-    VerRestComponent
+    VerRestComponent,
+    EditarRestComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ const almacenarImg = multer.diskStorage({
     },
     
     destination:`${__dirname}/../uploads`
-}) 
+})  
 
 
 const almacen = multer({storage: almacenarImg})

@@ -1,0 +1,46 @@
+#fondo{
+    background-image: url('../../../assets/fondo.jpg');   
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+} 
+
+#verRest{
+    border: 3px groove rgb(107, 106, 106);
+    background-color:#fdf5e6;
+    margin:auto;
+    display: block;
+    width: 1200px;
+    padding:20px;
+    text-align: center;
+}
+
+
+#verRest table{
+    display:block;
+    margin:auto;
+    width: 1000px;
+}
+
+#verRest table thead{
+    width: 1000px !important;
+    border:1px solid rgb(38, 36, 163);
+}
+
+#verRest table tr th{
+    padding-right: 20px;
+}
+
+#verRest table tbody tr{
+    width: 1000px !important;
+    border:1px solid rgb(38, 36, 163);
+}
+
+
+.iconos_borrar{
+    color:rgb(255, 0, 0);
+}
+
+.iconos_editar{
+    color:rgb(90, 138, 0);
+}

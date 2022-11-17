@@ -1,0 +1,31 @@
+<div id="fondo">
+    <div class="container">
+      <div id="verRest">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>Nombre restaurante</th>
+                    <th>Nombre del dueño</th>
+                    <th>Teléfono</th>
+                    <th>Numero de mesas</th>
+                    <th>Dirección</th>
+                    <th>Empleados</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rest of servicio.rest">
+                    <td>{{rest.nom_rest}}</td>
+                    <td>{{rest.nom_dueno}}</td>
+                    <td>{{rest.telefono}}</td>
+                    <td>{{rest.mesas}}</td>
+                    <td>{{rest.direccion}}</td>
+                    <td><a routerLink="/"><i class="pi pi-user iconos" ></i></a></td>
+                    <td><a routerLink="/"><i class="pi pi-pencil iconos_editar"></i></a></td>
+                    <td><a routerLink="/"><i class="pi pi-trash iconos_borrar"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>

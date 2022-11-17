@@ -16,6 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { VerUserComponent } from './componentes/ver-user/ver-user.component';
 import { RecuContraComponent } from './componentes/recu-contra/recu-contra.component';
 import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.component';
+import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.co
     PrincipalComponent,
     VerUserComponent,
     RecuContraComponent,
-    AniadirRestComponent
+    AniadirRestComponent,
+    VerRestComponent
   ],
   imports: [
     BrowserModule,

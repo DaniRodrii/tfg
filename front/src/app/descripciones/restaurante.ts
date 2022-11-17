@@ -5,5 +5,6 @@ export interface restaurante{
     mesas: Number, 
     id_user: String,
     direccion: String,
+    _id: string
 }  
 

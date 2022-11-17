@@ -28,6 +28,13 @@ export class VerRestComponent implements OnInit {
     }
   }
 
+  subir(id: string){
+    this.servicio.cifrarId(id).subscribe(
+    res=>{
+      localStorage.setItem('rest', JSON.stringify(res));
+    }
+      )
+  }
 
  
 }

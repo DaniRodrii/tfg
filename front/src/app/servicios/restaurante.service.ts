@@ -20,5 +20,7 @@ export class RestauranteService {
     return this.http.get(this.url_api + '/verRests'+'/'+token);
   }
 
-
+  cifrarId(token:string){
+    return this.http.post(this.url_api + '/cifrar'+'/'+token, token);
+  }
 }

@@ -27,6 +27,12 @@ funcionesRestaurante.obtenerRests = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesRestaurante.cifrarId = (req, res) => {
+    let id=req.params.id;
+    const token=jwt.sign({_id: id}, 'auth');
+    return res.status(200).json(token);
+}
+
 funcionesRestaurante.obtenerRest = (req, res) => {
 
 }

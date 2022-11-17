@@ -10,9 +10,10 @@
     background-color:#fdf5e6;
     margin:auto;
     display: block;
-    width: 1200px;
-    padding:20px;
+    width: 1500px;
+    padding:50px;
     text-align: center;
+    margin-left: -110px;
 }
 
 
@@ -23,17 +24,13 @@
 }
 
 #verRest table thead{
-    width: 1000px !important;
+    width: 1500px !important;
     border:1px solid rgb(38, 36, 163);
-}
-
-#verRest table tr th{
-    padding-right: 20px;
 }
 
 #verRest table tbody tr{
-    width: 1000px !important;
     border:1px solid rgb(38, 36, 163);
+    width: 1500px !important;
 }
 
 
@@ -43,6 +40,10 @@
 
 .iconos_editar{
     color:rgb(90, 138, 0);
+}
+
+.iconos_pedidos{
+    color:rgb(218, 131, 0);
 }
 
 .borrar_rest{

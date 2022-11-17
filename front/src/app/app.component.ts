@@ -26,7 +26,6 @@ export class AppComponent {
         },
         err => {
            console.error(err);
-           alert("Error");
         }
       )
 

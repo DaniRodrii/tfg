@@ -29,11 +29,18 @@ funcionesEmp.obtenerEmps = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesEmp.obtenerTodos = (req, res) => { 
+    console.log('a')
+    empleado.find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error})); 
+}
+
 funcionesEmp.cifrarId = (req, res) => {
     let id=req.params.id;
     const token=jwt.sign({_id: id}, 'auth');
-    return res.status(200).json(token);
-}
+    return res.status(200).json(token); 
+} 
 
 funcionesEmp.obtenerEmp = async (req, res) => {
     let token=req.params.id;

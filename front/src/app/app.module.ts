@@ -20,6 +20,7 @@ import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
 import { EditarRestComponent } from './componentes/editar-rest/editar-rest.component';
 import { VerEmpComponent } from './componentes/ver-emp/ver-emp.component';
 import { EditarEmpComponent } from './componentes/editar-emp/editar-emp.component';
+import { VerTodosEmpsComponent } from './componentes/ver-todos-emps/ver-todos-emps.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EditarEmpComponent } from './componentes/editar-emp/editar-emp.componen
     VerRestComponent,
     EditarRestComponent,
     VerEmpComponent,
-    EditarEmpComponent
+    EditarEmpComponent,
+    VerTodosEmpsComponent
   ],
   imports: [
     BrowserModule,

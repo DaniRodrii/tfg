@@ -32,6 +32,10 @@ export class EmpleadoService {
     return this.http.get(this.url_api + '/verEmps'+'/'+token);
   }
 
+  obtenerTodosEmpleados(token:string){
+    return this.http.get(this.url_api +'/verTodos'+'/'+token);
+  }
+
   obtenerEmpleado(token:string){
     return this.http.get(this.url_api +'/'+token);
   }

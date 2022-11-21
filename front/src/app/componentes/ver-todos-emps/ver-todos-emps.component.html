@@ -1,0 +1,30 @@
+<div id="fondo">
+    <div class="container">
+      <div id="verEmp">
+        <h1>Todos los empleados disponibles</h1>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>Nombre empleado</th>
+                    <th>Sexo</th>
+                    <th>Edad</th>
+                    <th>Cargo</th>
+                    <th>Telfono</th>
+                    <th>DNI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleado of servicio.emp">
+                    <td>{{empleado.nom_emp}}</td>
+                    <td>{{empleado.sexo}}</td>
+                    <td>{{empleado.edad}}</td>
+                    <td>{{empleado.cargo}}</td>
+                    <td>{{empleado.telefono}}</td>
+                    <td>{{empleado.DNI}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a routerLink="/verEmp" class="enlace-todos">Volver</a>
+    </div>
+  </div>
+</div>

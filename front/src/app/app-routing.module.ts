@@ -13,6 +13,7 @@ import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
 import { EditarRestComponent } from './componentes/editar-rest/editar-rest.component';
 import { VerEmpComponent } from './componentes/ver-emp/ver-emp.component';
 import { EditarEmpComponent } from './componentes/editar-emp/editar-emp.component';
+import { VerTodosEmpsComponent } from './componentes/ver-todos-emps/ver-todos-emps.component';
 
 const routes: Routes = [
   {path:'registroUser', component:RegistroUsuarioComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:'editarRest', component:EditarRestComponent, canActivate: [AuthGuard]},
   {path:'aniadirRest', component:AniadirRestComponent, canActivate: [AuthGuard]},
   {path:'verEmp', component:VerEmpComponent, canActivate: [AuthGuard]},
-  {path:'editarEmp', component:EditarEmpComponent, canActivate: [AuthGuard]}
+  {path:'editarEmp', component:EditarEmpComponent, canActivate: [AuthGuard]},
+  {path:'verEmps', component:VerTodosEmpsComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

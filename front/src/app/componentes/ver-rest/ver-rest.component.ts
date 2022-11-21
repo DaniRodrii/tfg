@@ -32,7 +32,7 @@ export class VerRestComponent implements OnInit {
       localStorage.removeItem('rest');
     }
   }
-
+ 
   subir(id: string){
     this.servicio.cifrarId(id).subscribe(
     res=>{
@@ -46,7 +46,7 @@ export class VerRestComponent implements OnInit {
     this.servicio.borrarRest(id).subscribe(
     res=>{
       swal.fire({
-        title: 'Usuario borrado', 
+        title: 'Restaurante borrado', 
         icon: 'success',
         width: 400,
        }).then(()=>{

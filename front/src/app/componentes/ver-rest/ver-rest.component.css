@@ -50,3 +50,13 @@
     background:none;
     border:none;
 }
+
+.enlace-todos{
+    margin-right:15px;
+    color:rgb(46, 48, 48)
+}
+
+.enlace-todos:hover{
+    color:rgb(93, 91, 197);
+}
+

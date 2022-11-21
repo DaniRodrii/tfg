@@ -9,4 +9,4 @@ router.get('/:id', restaurante.obtenerRest);
 router.put('/:id', restaurante.editarRest);
 router.delete('/:id', restaurante.borrarRest);
 
-module.exports = router; 
+module.exports = router;  

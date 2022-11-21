@@ -11,6 +11,7 @@ import { RecuContraComponent } from './componentes/recu-contra/recu-contra.compo
 import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.component';
 import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
 import { EditarRestComponent } from './componentes/editar-rest/editar-rest.component';
+import { VerEmpComponent } from './componentes/ver-emp/ver-emp.component';
 
 const routes: Routes = [
   {path:'registroUser', component:RegistroUsuarioComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'recuperarContraseña', component:RecuContraComponent},
   {path:'verRestaurante', component:VerRestComponent, canActivate: [AuthGuard]},
   {path:'editarRest', component:EditarRestComponent, canActivate: [AuthGuard]},
-  {path:'aniadirRest', component:AniadirRestComponent, canActivate: [AuthGuard]}
+  {path:'aniadirRest', component:AniadirRestComponent, canActivate: [AuthGuard]},
+  {path:'verEmp', component:VerEmpComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

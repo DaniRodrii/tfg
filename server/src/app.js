@@ -1,6 +1,7 @@
 const express = require('express');
 const rutasUsuario = require('./rutas/usuarios');
 const rutasRest = require('./rutas/restaurante');
+const rutasEmp = require('./rutas/empleado');
 const app =express();
 const cors = require('cors');
 const join = require("path").join;
@@ -19,6 +20,7 @@ app.use(express.static(join(__dirname, "./uploads")));
 app.use(cookieParser());
 app.use('/api/usuarios', rutasUsuario);
 app.use('/api/restaurante', rutasRest);
+app.use('/api/empleado', rutasEmp);
 
 
 //rutas 

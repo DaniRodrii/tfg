@@ -21,18 +21,21 @@ const DatosEmpleado = mongoose.Schema({
         require: true
     },
 
-    nom_rest: {
+    id_rest: {
         type: String,
         require: true
     },
 
     DNI: {
         type: String,
-        require: true
+        require: true, 
+        unique: true
     },
 
-    contrasena: {
-        type: String,
+    telefono: {
+        type: Number,
         require: true
     }
 });
+
+module.exports = mongoose.model('Empleado', DatosEmpleado);

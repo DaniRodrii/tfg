@@ -13,6 +13,7 @@ export class VerEmpComponent implements OnInit {
 
   constructor(public servicio: EmpleadoService, private router: Router, private fb: FormBuilder) { }
   public aniadirEmpForm!: FormGroup;
+  tituloAlerta: string = '';
   ngOnInit(): void {
     if(localStorage.getItem('token') && localStorage.getItem('rest')){
       let token=localStorage.getItem('rest')!;
@@ -68,7 +69,16 @@ export class VerEmpComponent implements OnInit {
          });
       },
       err=> {
-        console.log(err)
+        this.tituloAlerta=JSON.stringify(err.error.message);
+        let alerta=this.tituloAlerta.replace(/['"]+/g, '');
+         swal.fire({
+          title: 'Error',  
+          text: alerta,  
+          icon: 'error',
+          width: 400,
+          background:'#ffbdb9'
+         });
+         this.ngOnInit()
       }
     )
   }

@@ -10,7 +10,7 @@ import { EmpleadoService } from 'src/app/servicios/empleado.service';
 export class VerTodosEmpsComponent implements OnInit {
 
   constructor(public servicio: EmpleadoService, private router: Router) { }
-
+  tituloAlerta: string = '';
   ngOnInit(): void {
     if(localStorage.getItem('token')){
       let token=localStorage.getItem('token')!;

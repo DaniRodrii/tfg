@@ -2,10 +2,17 @@ const empleado = require('../modelos/empleado');
 const jwt = require('jsonwebtoken')
 const funcionesEmp = {};
 
-funcionesEmp.crearEmp = (req, res) => {
-    console.log(req.body);
+funcionesEmp.crearEmp = async (req, res) => {
     const rest=empleado(req.body);
-    console.log(rest)
+    
+    let empleadoEncontrado = await empleado.findOne({DNI: rest.DNI});
+    if(empleadoEncontrado){
+        return res.status(400).json({
+            message: "El empleado ya existe",
+            success: false
+        })
+    }
+
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 
@@ -30,8 +37,8 @@ funcionesEmp.obtenerEmps = (req, res) => {
 }
 
 funcionesEmp.obtenerTodos = (req, res) => { 
-    console.log('a')
-    empleado.find()
+    
+empleado.find()
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error})); 
 }

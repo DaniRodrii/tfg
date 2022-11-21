@@ -1,4 +1,5 @@
 const restaurante = require('../modelos/restaurante');
+const empleado = require('../modelos/empleado');
 const jwt = require('jsonwebtoken')
 const funcionesRestaurante = {};
 
@@ -65,7 +66,9 @@ funcionesRestaurante.borrarRest = (req, res) => {
     const id=tokenDecode._id; 
 
     restaurante.findByIdAndDelete(id)
-        .then((data) => res.json(data))
+        .then(
+            empleado.findOneAndDelete({id_rest:id}).then((data) => res.json(data))
+        )
         .catch((error) => res.json({message: error}));
 }
 

@@ -73,4 +73,28 @@ export class VerEmpComponent implements OnInit {
     )
   }
 
+  borrar(){
+    const id=localStorage.getItem('emp')!;
+    this.servicio.borrarEmp(id).subscribe(
+    res=>{
+      swal.fire({
+        title: 'Empleado borrado', 
+        icon: 'success',
+        width: 400,
+       }).then(()=>{
+        localStorage.removeItem('emp');
+        this.ngOnInit();
+       });
+    }
+      )
+  }
+
+  subir(id: string){
+    this.servicio.cifrarId(id).subscribe(
+    res=>{
+      localStorage.setItem('emp', JSON.stringify(res));
+    }
+      )
+  }
+
 }

@@ -9,6 +9,17 @@ export class EmpleadoService {
 
   emp !: empleado[];
 
+  empleado: empleado = {
+    nom_emp: '',
+    edad: 0,
+    telefono: 0,
+    cargo: '',
+    sexo: '',
+    id_rest:'',
+    _id:'',
+    DNI: ''
+  }
+
   url_api = 'http://localhost:4000/api/empleado';
 
   constructor(private http: HttpClient) { }
@@ -19,6 +30,22 @@ export class EmpleadoService {
 
   obtenerEmpleados(token:string){
     return this.http.get(this.url_api + '/verEmps'+'/'+token);
+  }
+
+  obtenerEmpleado(token:string){
+    return this.http.get(this.url_api +'/'+token);
+  }
+
+  cifrarId(token:string){
+    return this.http.post(this.url_api + '/cifrar'+'/'+token, token);
+  }
+
+  borrarEmp(token: string){
+    return this.http.delete(this.url_api + '/'+token);
+  }
+
+  editarEmpleado(form: FormData, token: string){
+    return this.http.put(this.url_api +'/'+token, form);
   }
 }
  

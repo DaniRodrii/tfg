@@ -19,6 +19,7 @@ import { AniadirRestComponent } from './componentes/aniadir-rest/aniadir-rest.co
 import { VerRestComponent } from './componentes/ver-rest/ver-rest.component';
 import { EditarRestComponent } from './componentes/editar-rest/editar-rest.component';
 import { VerEmpComponent } from './componentes/ver-emp/ver-emp.component';
+import { EditarEmpComponent } from './componentes/editar-emp/editar-emp.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { VerEmpComponent } from './componentes/ver-emp/ver-emp.component';
     AniadirRestComponent,
     VerRestComponent,
     EditarRestComponent,
-    VerEmpComponent
+    VerEmpComponent,
+    EditarEmpComponent
   ],
   imports: [
     BrowserModule,

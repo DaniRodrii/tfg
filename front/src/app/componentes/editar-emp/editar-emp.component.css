@@ -1,0 +1,111 @@
+#fondo{
+    background-image: url('../../../assets/fondo.jpg');   
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+} 
+
+#editaremp{
+    border: 3px groove rgb(107, 106, 106);
+    background-color:#fdf5e6;
+    margin:0 auto;
+    display: block;
+    width: 1500px;
+    padding:50px;
+    text-align: center;
+    margin-left: -110px;
+}
+
+.iconos_borrar{
+    color:rgb(255, 0, 0);
+}
+
+.iconos_editar{
+    color:rgb(90, 138, 0);
+}
+
+.iconos_pedidos{
+    color:rgb(218, 131, 0);
+}
+
+.borrar_rest{
+    background:none;
+    border:none;
+}
+
+.enlace-todos{
+    margin-right:15px;
+    color:rgb(46, 48, 48)
+}
+
+.enlace-todos:hover{
+    color:rgb(93, 91, 197);
+}
+
+form{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+form input[type="text"]{
+    border: none;
+    border-bottom: 1px solid rgb(171, 0, 206);
+    background: none;
+    width: 250px;
+    outline: none;
+    margin: auto;
+    display:block;
+}
+
+form input[type="number"]{
+    border: none;
+    border-bottom: 1px solid rgb(171, 0, 206);
+    background: none;
+    width: 250px;
+    outline: none;
+    margin: auto;
+    display:block;
+}
+
+form input::placeholder{
+    text-align: center;
+}
+
+
+form h1{
+    color:#0a0a0a;
+}
+
+form label{
+    margin-top: 20px;
+}
+
+.ref-sexo{
+    margin-left: 10px;
+}
+
+.ref-cargo{
+    margin-left: 10px;
+}
+
+form button{
+    margin: auto;
+    display:block;
+    margin-top:20px;
+    margin-bottom:10px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(167, 157, 148);
+}
+
+form button:hover{
+    background-color: rgb(43, 42, 41);
+}
+
+input.ng-invalid.ng-touched{
+    border-bottom:1px solid red !important;
+}
+
+

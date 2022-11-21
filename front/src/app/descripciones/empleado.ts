@@ -6,4 +6,5 @@ export interface empleado{
     id_rest: string
     DNI: string
     telefono:number
+    _id: string
 }

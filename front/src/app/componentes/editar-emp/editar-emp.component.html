@@ -1,0 +1,49 @@
+<div id="fondo"> 
+    <div class="container" >
+        <div id="editaremp">
+            <form  [formGroup]="editarEmpForm" (submit)="editarEmp()">
+                <h1>Editar empleado</h1>
+                <div class="form-group">
+                    <label for="nom_emp">Nombre empleado: <b>{{servicio.empleado.nom_emp}}</b></label>
+                    <input type="text" formControlName="nom_emp" name="nom_emp" class="form-control"><br>
+                </div>
+                <div class="form-group">
+                    <label for="sexo">Sexo: <b>{{servicio.empleado.sexo}}</b></label><br>
+                    <input class="form-check-input" type="radio" formControlName="sexo" name="sexo" id="sexo1" value="Hombre">
+                        <span class="ref-sexo">Hombre</span>
+                    <br>
+                    <input class="form-check-input" type="radio" formControlName="sexo" name="sexo" id="sexo2" value="Mujer">              
+                        <span class="ref-sexo">Mujer</span>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad: <b>{{servicio.empleado.edad}}</b></label>
+                    <input type="number" formControlName="edad" name="edad" class="form-control"><br>
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo: <b>{{servicio.empleado.cargo}}</b></label><br>
+                    <input class="form-check-input" type="radio" formControlName="cargo" name="cargo" value="Camarero">
+                        <span class="ref-cargo">Camarero</span>
+                    <br>
+                    <input class="form-check-input" type="radio" formControlName="cargo" name="cargo" value="Bartender">              
+                        <span class="ref-cargo">Bartender</span>
+                    <br>
+                    <input class="form-check-input" type="radio" formControlName="cargo" name="cargo" value="Cajero">
+                        <span class="ref-cargo">Cajero</span>
+                    <br>
+                    <input class="form-check-input" type="radio" formControlName="cargo" name="cargo" value="Cocinero">
+                        <span class="ref-cargo">Cocinero</span>
+                </div>
+                <div class="form-group">
+                    <label for="telfono">Telfono: <b>{{servicio.empleado.telefono}}</b></label>
+                    <input type="number" formControlName="telefono"   name="telefono" class="form-control"><br>
+                </div>
+                <div class="form-group">
+                    <label for="DNI">DNI: <b>{{servicio.empleado.DNI}}</b></label>
+                    <input type="text" formControlName="DNI"  name="DNI" class="form-control"><br>
+                </div>
+                <button type="submit" class="btn" [disabled]="editarEmpForm.invalid">Añadir</button>
+            </form>
+            <a routerLink="/verEmp" >Volver</a>
+        </div>
+    </div>
+</div>

@@ -3,15 +3,15 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Borrar Restaurante</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Borrar empleado</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ¿Esta seguro de que quiere borrar el restaurante?
+          ¿Esta seguro de que quiere borrar el empleado?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Borrar Restaurante</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="borrar()">Borrar empleado</button>
         </div>
       </div>
     </div>
@@ -43,8 +43,8 @@
                         <td>{{empleado.cargo}}</td>
                         <td>{{empleado.telefono}}</td>
                         <td>{{empleado.DNI}}</td>
-                        <td><span class="pi pi-pencil iconos_editar"></span></td>
-                        <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarEmp" class="borrar_rest"><i class="pi pi-trash iconos_borrar"></i>.</button></td>
+                        <td><a routerLink="/editarEmp" ><span class="pi pi-pencil iconos_editar" (click)="subir(empleado._id)"></span></a></td>
+                        <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarEmp" class="borrar_rest" (click)="subir(empleado._id)"><i class="pi pi-trash iconos_borrar"></i>.</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -68,8 +68,7 @@
                     <input type="number" formControlName="edad" name="edad" class="form-control" required><br>
                 </div>
                 <div class="form-group">
-                    <label for="cargo">Cargo</label>
-                    <label for="sexo">Sexo</label><br>
+                    <label for="cargo">Cargo</label><br>
                     <input class="form-check-input" type="radio" formControlName="cargo" name="cargo" value="Camarero">
                         <span class="ref-cargo">Camarero</span>
                     <br>

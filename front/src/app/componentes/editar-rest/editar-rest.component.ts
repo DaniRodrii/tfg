@@ -43,11 +43,6 @@ export class EditarRestComponent implements OnInit {
     }else{
       this.router.navigate(['verRestaurante']);
     }
-
-    
-      
-    
-
   }
 
   cargar(){

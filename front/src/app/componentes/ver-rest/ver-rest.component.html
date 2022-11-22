@@ -30,7 +30,6 @@
                     <th>Numero de mesas</th>
                     <th>Dirección</th>
                     <th>Empleados</th>
-                    <th>Pedidos</th>
                     <th>Editar</th>
                     <th>Borrar</th>
                 </tr>
@@ -43,7 +42,6 @@
                     <td>{{rest.mesas}}</td>
                     <td>{{rest.direccion}}</td>
                     <td><a routerLink="/verEmp"><i class="pi pi-user iconos" (mouseover)="subir(rest._id)"></i></a></td>
-                    <td ><a routerLink="/" ><span class="pi pi-shopping-bag iconos_pedidos" (mouseover)="subir(rest._id)"></span></a></td>
                     <td ><a routerLink="/editarRest" ><span class="pi pi-pencil iconos_editar" (mouseover)="subir(rest._id)"></span></a></td>
                     <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarRest" class="borrar_rest"><i class="pi pi-trash iconos_borrar" (click)="subir(rest._id)"></i>.</button></td>
                 </tr>

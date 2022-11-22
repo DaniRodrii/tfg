@@ -1,22 +1,104 @@
-<div>
 <nav class="navbar navbar-expand-lg navbar-light bg-black">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <img src="../assets/logo.jpeg" alt="img" class="img-logo" routerLink="/"><span id="nombreLogo">Gestaurante</span>
-        <ul class="navbar-nav" *ngIf="ver">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="aniadirRest">Añadir</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="verRestaurante">Gestionar</a>
-          </li>
-         </ul>
-         <div id="contenedorImg" *ngIf="ver">
-            <img src="http://localhost:4000/{{servicio.usuario.imagen}}" alt="img" class="img-perfil" routerLink="/verUser">
-         </div>
-        </div>
+  <div class="container-fluid">
+    <img src="../assets/logo.jpeg" alt="img" class="img-logo" routerLink="/"><span id="nombreLogo">GESTAURANTE</span>
+    <button class="navbar-toggler desplegable" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="aniadirRest">Añadir</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="verRestaurante">Gestionar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="verRestaurante">Pedidos</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-</div>
+    <form class="d-flex">
+      <img src="http://localhost:4000/{{servicio.usuario.imagen}}" alt="img" class="img-perfil" routerLink="/verUser">
+    </form>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
+
+
+
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
+
+    <section
+             class="d-flex justify-content-between p-4"
+             style="background-color: #a99aff"
+             >
+
+      <div class="me-5">
+        <span>Nuestras redes sociales:</span>
+      </div>
+ 
+      <div>
+        <i class="pi pi-instagram mr-20"></i>
+        <i class="pi pi-twitter mr-20"></i>
+        <i class="pi pi-linkedin mr-20"></i>
+        <i class="pi pi-facebook mr-20"></i>
+      </div>
+
+    </section>
+
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold">GESTAURANTE</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #b398ff; height: 2px"
+                />
+            <p>
+              Nuestra empresa esta basada en a gestión de restaurantes, facilitando todos los trmáites de los pedidos, empleados, etc.
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold">Teléfono</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #bda4ff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">+34 654 03 61 02</a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold">Correo</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p style="margin-left: -60px;">
+              <a href="#!" class="text-white">gestauranteempresa@gmail.com</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold">Dirección</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3" style="margin-left: -50px;"></i> Calle Turquía 7, Fuenlabrada 28943</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"
+         >MDBootstrap.com</a
+        >
+    </div>
+  </footer>

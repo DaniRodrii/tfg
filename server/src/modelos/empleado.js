@@ -34,7 +34,8 @@ const DatosEmpleado = mongoose.Schema({
 
     telefono: {
         type: Number,
-        require: true
+        require: true, 
+        unique: true
     }
 });
 

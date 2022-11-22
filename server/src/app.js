@@ -2,6 +2,7 @@ const express = require('express');
 const rutasUsuario = require('./rutas/usuarios');
 const rutasRest = require('./rutas/restaurante');
 const rutasEmp = require('./rutas/empleado');
+const rutasStock = require('./rutas/stock');
 const app =express();
 const cors = require('cors');
 const join = require("path").join;
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use('/api/usuarios', rutasUsuario);
 app.use('/api/restaurante', rutasRest);
 app.use('/api/empleado', rutasEmp);
+app.use('/api/stock', rutasStock);
 
 
 //rutas 

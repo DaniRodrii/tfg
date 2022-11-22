@@ -36,13 +36,6 @@ funcionesEmp.obtenerEmps = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
-funcionesEmp.obtenerTodos = (req, res) => { 
-    
-empleado.find()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({message: error})); 
-}
-
 funcionesEmp.cifrarId = (req, res) => {
     let id=req.params.id;
     const token=jwt.sign({_id: id}, 'auth');

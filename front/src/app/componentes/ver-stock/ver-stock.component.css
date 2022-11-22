@@ -56,7 +56,6 @@
 }
 
 .enlace-todos{
-    margin-right:15px;
     color:rgb(46, 48, 48)
 }
 
@@ -64,3 +63,11 @@
     color:rgb(93, 91, 197);
 }
 
+.enlace-aniadir{
+    margin-bottom:15px;
+    color:rgb(46, 48, 48)
+}
+
+.p-20{
+    padding:20px;
+}

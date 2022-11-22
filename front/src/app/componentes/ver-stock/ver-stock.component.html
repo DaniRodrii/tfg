@@ -1,0 +1,35 @@
+
+<div id="fondo">
+    <div class="container">
+      <div id="verRest" class="row">
+        <a routerLink="/aniadirStock" class="enlace-aniadir">Añadir producto</a>
+        <div class="col-12 p-20">
+          <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Coste total</th>
+                    <th scope="col">Nombre restaurante</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of servicio.stock">
+                    <td>{{prod.nom_prod}}</td>
+                    <td>{{prod.cantidad}}</td>
+                    <td>{{prod.coste_total}}</td>
+                    <td>{{prod.nom_rest}}</td>
+                    <td>Stock {{prod.estado}}</td>
+                    <td *ngIf="prod"><a routerLink="/editarRest" ><span class="pi pi-pencil iconos_editar"></span></a></td>
+                    <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarProd" class="borrar_rest"  (click)="borrar(prod._id)"><i class="pi pi-trash iconos_borrar"></i>.</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <a routerLink="/verRestaurante" class="enlace-todos">Volver</a>
+        </div>
+    </div>
+  </div>
+</div>

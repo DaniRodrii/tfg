@@ -4,5 +4,6 @@ export interface pedidos{
     descripcion: String,
     precio: Number,
     id_rest: String,
-    direccion: String
+    direccion: String,
+    _id: String
 }

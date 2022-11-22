@@ -1,13 +1,6 @@
 #fondo{
-    background-image: url('../../../assets/fondo.jpg');   
-    background-size: cover;
-    padding-top:20px;
-    padding-bottom:20px;
+    background-image: url('../../../assets/rest-fondo.webp');   
+    padding-top:80px;
+    padding-bottom:80px;
 }
 
-#carrusel{
-    width:90%;
-    max-height: 60%;
-    margin:auto;
-    display:block;
-}

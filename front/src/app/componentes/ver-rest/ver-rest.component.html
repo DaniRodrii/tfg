@@ -20,18 +20,19 @@
 
 <div id="fondo">
     <div class="container">
-      <div id="verRest">
-        <table class="table ">
+      <div id="verRest" class="row">
+        <div class="col-12">
+          <table class="table table-dark table-striped">
             <thead>
                 <tr>
-                    <th>Nombre restaurante</th>
-                    <th>Nombre del dueño</th>
-                    <th>Teléfono</th>
-                    <th>Numero de mesas</th>
-                    <th>Dirección</th>
-                    <th>Empleados</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
+                    <th scope="col">Nombre restaurante</th>
+                    <th scope="col">Nombre del dueño</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Numero de mesas</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Empleados</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Borrar</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,6 +49,7 @@
             </tbody>
         </table>
         <a routerLink="/" class="enlace-todos">Ver todos los pedidos</a>
+        </div>
     </div>
   </div>
 </div>

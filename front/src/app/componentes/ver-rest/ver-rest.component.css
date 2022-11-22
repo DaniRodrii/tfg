@@ -1,16 +1,15 @@
 #fondo{
-    background-image: url('../../../assets/fondo.jpg');   
-    background-size: cover;
+    background-image: url('../../../assets/rest-fondo.webp');
     padding-top: 200px;
     padding-bottom: 200px;
 } 
 
 #verRest{
     border: 3px groove rgb(107, 106, 106);
-    background-color:#fdf5e6;
+    border-radius: 7px;
+    background-color:#d2c9ec;
     margin:auto;
     display: block;
-    width: 1500px;
     padding:50px;
     text-align: center;
     margin-left: -110px;
@@ -18,19 +17,24 @@
 
 
 #verRest table{
-    display:block;
-    margin:auto;
-    width: 1000px;
+    margin: 0 auto;
+}
+
+#verRest table th{
+    padding: 5px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #verRest table thead{
-    width: 1500px !important;
-    border:1px solid rgb(38, 36, 163);
+    border:1px solid rgb(133, 66, 196);
 }
 
 #verRest table tbody tr{
-    border:1px solid rgb(38, 36, 163);
-    width: 1500px !important;
+    border:1px solid rgb(133, 66, 196);
+}
+
+#verRest table tbody tr td{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 

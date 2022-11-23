@@ -16,6 +16,9 @@ import { EditarEmpComponent } from './componentes/editar-emp/editar-emp.componen
 import { AniadirStockComponent } from './componentes/aniadir-stock/aniadir-stock.component';
 import { EditarStockComponent } from './componentes/editar-stock/editar-stock.component';
 import { VerStockComponent } from './componentes/ver-stock/ver-stock.component';
+import { AniadirPedidosComponent } from './componentes/aniadir-pedidos/aniadir-pedidos.component';
+import { EditarPedidosComponent } from './componentes/editar-pedidos/editar-pedidos.component';
+import { VerPedidosComponent } from './componentes/ver-pedidos/ver-pedidos.component';
 
 const routes: Routes = [
   {path:'registroUser', component:RegistroUsuarioComponent},
@@ -32,7 +35,10 @@ const routes: Routes = [
   {path:'editarEmp', component:EditarEmpComponent, canActivate: [AuthGuard]},
   {path:'verStock', component:VerStockComponent, canActivate: [AuthGuard]},
   {path:'editarStock', component:EditarStockComponent, canActivate: [AuthGuard]},
-  {path:'aniadirStock', component:AniadirStockComponent, canActivate: [AuthGuard]}
+  {path:'aniadirStock', component:AniadirStockComponent, canActivate: [AuthGuard]},
+  {path:'aniadirPedidos', component:AniadirPedidosComponent, canActivate: [AuthGuard]},
+  {path:'editarPedidos', component:EditarPedidosComponent, canActivate: [AuthGuard]},
+  {path:'verPedidos', component:VerPedidosComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

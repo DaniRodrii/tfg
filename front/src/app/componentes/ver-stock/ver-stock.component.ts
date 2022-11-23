@@ -18,6 +18,11 @@ export class VerStockComponent implements OnInit {
     }else{
       this.router.navigate(['verRestaurante']);
     }
+
+    if(sessionStorage.getItem('stock')){
+      sessionStorage.removeItem('stock');
+    }
+    
   }
 
   cargar(){
@@ -31,6 +36,11 @@ export class VerStockComponent implements OnInit {
           console.log(err)
         }
       ) 
+  }
+
+  subir(id: any){
+
+    sessionStorage.setItem('stock', id)
   }
 
   borrar(id:any){

@@ -11,6 +11,15 @@ export class StockService {
 
   stock !: stock[];
 
+  prod : stock = {
+    nom_rest:'',
+    nom_prod: '',
+    _id: '',
+    cantidad: 0,
+    coste_total:0,
+    estado: ''
+  }
+
   constructor(private http: HttpClient) { }
 
 
@@ -24,6 +33,14 @@ export class StockService {
 
   borrar(id: any){
     return this.http.delete(this.url_api + '/' +id);
+  }
+
+  editarStockDatos(form: FormData, token: string){
+    return this.http.put(this.url_api +'/'+token, form);
+  }
+
+  obtenerProd(id: any){
+    return this.http.get(this.url_api +'/'+id);
   }
 
 }

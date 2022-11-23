@@ -35,25 +35,18 @@ funcionesStock.obtenerProds = async (req, res) => {
 
 
 funcionesStock.obtenerProd = async (req, res) => {
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
-
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
+    const id=req.params.id;
     
-    await restaurante.findById(id)
+    await stock.findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 }
 
 funcionesStock.editarProd = (req, res) => {
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
+    const id=req.params.id;
 
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
 
-    restaurante.findByIdAndUpdate(id, req.body)
+    stock.findByIdAndUpdate(id, req.body)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 }

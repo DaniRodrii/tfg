@@ -12,7 +12,6 @@
     display: block;
     padding:50px;
     text-align: center;
-    margin-left: -110px;
 }
 
 
@@ -62,5 +61,5 @@
 
 .enlace-todos:hover{
     color:rgb(93, 91, 197);
-}
+} 
 

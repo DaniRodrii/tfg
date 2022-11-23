@@ -21,11 +21,6 @@ const DatosPedidos = mongoose.Schema({
         require: true
     },
 
-    id_rest: {
-        type: String,
-        require: true
-    },
-
     direccion: {
         type: String,
         require: true

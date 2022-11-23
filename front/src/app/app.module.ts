@@ -23,6 +23,9 @@ import { EditarEmpComponent } from './componentes/editar-emp/editar-emp.componen
 import { VerStockComponent } from './componentes/ver-stock/ver-stock.component';
 import { AniadirStockComponent } from './componentes/aniadir-stock/aniadir-stock.component';
 import { EditarStockComponent } from './componentes/editar-stock/editar-stock.component';
+import { VerPedidosComponent } from './componentes/ver-pedidos/ver-pedidos.component';
+import { AniadirPedidosComponent } from './componentes/aniadir-pedidos/aniadir-pedidos.component';
+import { EditarPedidosComponent } from './componentes/editar-pedidos/editar-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { EditarStockComponent } from './componentes/editar-stock/editar-stock.co
     EditarEmpComponent,
     VerStockComponent,
     AniadirStockComponent,
-    EditarStockComponent
+    EditarStockComponent,
+    VerPedidosComponent,
+    AniadirPedidosComponent,
+    EditarPedidosComponent
   ],
   imports: [
     BrowserModule,

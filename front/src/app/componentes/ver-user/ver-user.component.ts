@@ -30,7 +30,7 @@ export class VerUserComponent implements OnInit {
   }
 
   cerrarSesion(){
-      localStorage.removeItem('token');
+      localStorage.clear();
       this.router.navigate(['loginUser']);
 
   }

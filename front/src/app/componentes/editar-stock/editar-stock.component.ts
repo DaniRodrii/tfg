@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StockService } from '../../servicios/stock.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-editar-stock',
@@ -7,9 +11,91 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarStockComponent implements OnInit {
 
-  constructor() { }
+  constructor( public servicio: StockService, private router: Router, private fb: FormBuilder ) { }
+  public editarStockForm!: FormGroup;
 
   ngOnInit(): void {
+    if(localStorage.getItem('token') && localStorage.getItem('rest')){
+
+      this.editarStockForm = this.fb.group({
+        nom_prod:['', [
+          Validators.pattern(/^[A-za-z]+(\s[A-za-z]+)*$/)
+        ]],
+        cantidad:['', [
+          Validators.pattern(/^[0-9]+$/)
+        ]],
+        coste_total:['', [
+          Validators.pattern(/^[0-9]+$/)
+        ]],
+        estado:['', [
+
+        ]]
+      })
+
+      this.cargar();
+
+    }else{
+      this.router.navigate(['verStock']);
+    }
   }
 
+  cargar(){
+    const token=sessionStorage.getItem('stock')!;
+    this.servicio.obtenerProd(token).subscribe(
+      res => {
+        let datos=JSON.stringify(res);
+        this.servicio.prod=JSON.parse(datos);
+        sessionStorage.removeItem('stock');
+      },
+      err => {
+         console.error(err);
+      }
+    )
+  }
+
+
+  editar(){
+    const token = sessionStorage.getItem('stock')!;
+
+
+    if (this.editarStockForm.value.nom_prod.length < 2) {
+      this.editarStockForm.removeControl('nom_prod');
+    }
+
+    if (this.editarStockForm.value.cantidad.length < 2) {
+      this.editarStockForm.removeControl('cantidad');
+    }
+
+    if (this.editarStockForm.value.coste_total.length < 2) {
+      this.editarStockForm.removeControl('coste_total');
+    }
+
+    if (this.editarStockForm.value.estado.length < 2) {
+      this.editarStockForm.removeControl('estado');
+    }
+
+    if (JSON.stringify(this.editarStockForm.value) === '{}') {
+      swal.fire({
+        title: 'Error',  
+        text: 'No se puede enviar formularios vacios',  
+        icon: 'warning',
+        width: 400,
+        color:'white',
+        background:'#8c004b'
+
+       }).then(()=>{
+          this.router.navigate(["/verRestaurante"]);
+       });
+    } else {
+      this.servicio.editarStockDatos(this.editarStockForm.value, token).subscribe(
+        res => {
+          console.log(res);
+          location.reload();
+        },
+        err => {
+          console.log(err);
+          // location.reload();
+        });
+    }
+  }
 }

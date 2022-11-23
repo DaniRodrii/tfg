@@ -59,7 +59,7 @@ export class AniadirPedidosComponent implements OnInit {
             icon: 'success',
             width: 400
            }).then(()=>{
-              this.router.navigate(['/']);
+              this.router.navigate(['/verPedidos']);
            });
         },
         err=> {

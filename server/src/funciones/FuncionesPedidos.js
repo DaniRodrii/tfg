@@ -11,13 +11,8 @@ funcionesPedidos.crearPedido = async (req, res) => {
 }
 
 funcionesPedidos.obtenerPedidos = (req, res) => {
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
 
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
-
-    pedidos.find({id_rest:id})
+    pedidos.find()
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 }
@@ -54,11 +49,7 @@ funcionesPedidos.editarPedido = (req, res) => {
 }
 
 funcionesPedidos.borrarPedido = (req, res) => {
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
-
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id; 
+    let id=req.params.id;
 
     pedidos.findByIdAndDelete(id)
         .then((data) => res.json(data))

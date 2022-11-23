@@ -21,5 +21,12 @@ export class PedidosService {
     return this.http.post(this.url_api + '/aniadir', form);
   }
 
+  obtenerPedidos(){
+    return this.http.get(this.url_api +'/verPedidos');
+  }
+
+  borrarPedido(id: any){
+    return this.http.delete(this.url_api +'/'+id);
+  }
 }
  

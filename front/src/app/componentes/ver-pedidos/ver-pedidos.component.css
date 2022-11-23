@@ -1,0 +1,66 @@
+#fondo{
+    background-image: url('../../../assets/rest-fondo.webp');
+    padding-top: 150px;
+    padding-bottom: 150px;
+} 
+
+#verEmp{
+    border: 3px groove rgb(107, 106, 106);
+    background-color:#d2c9ec;
+    margin:auto;
+    display: block;
+    padding:50px;
+    text-align: center;
+}
+
+.iconos_borrar{
+    color:rgb(255, 0, 0);
+}
+
+.iconos_editar{
+    color:rgb(90, 138, 0);
+    margin-right: 5px;
+}
+
+
+.borrar_rest{
+    background:none;
+    border:none;
+}
+
+input.ng-invalid.ng-touched{
+    border-bottom:1px solid red !important;
+}
+
+.pedido{
+    border:1px dotted black;
+    background-color: rgb(255, 255, 255);
+}
+
+.pedido-header h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.pedido-body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pedido-precio p{
+    font-size:18px;
+}
+
+.pedido-acciones{
+    padding:10px;
+}
+
+.enlace-todos {
+    color:black;
+}
+
+.enlace-todos:hover{
+    color:rgb(38, 36, 163);
+    text-decoration: none;
+}
+
+
+

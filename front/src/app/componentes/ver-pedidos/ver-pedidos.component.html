@@ -1,1 +1,52 @@
-<p>ver-pedidos works!</p>
+<!-- Modal -->
+<div class="modal fade" id="modalBorrarPedido" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Borrar pedido</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguro de que quiere borrar el pedido?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="borrar()">Borrar pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="fondo">
+    <div class="container">
+      <div id="verEmp">
+        <h1>Pedidos</h1>
+                <div class="row" *ngIf="disponible">
+                    <div  class="col-12 col-md-4 col-sm-12 pedido" *ngFor="let pedido of servicio.pedidos">
+                        <hr>
+                        <section class="pedido-header">
+                            <h2>{{pedido.nom}}</h2>
+                            <p>{{pedido.descripcion}}</p>
+                        </section>
+                        <hr>
+                        <section class="pedido-body">
+                            <h5>{{pedido.nom_rest}}</h5>
+                            <p>{{pedido.direccion}}</p>
+                            <p>{{pedido.ciudad}}</p>
+                        </section>
+                        <hr>
+                        <section class="pedido-precio">
+                            <p><b>{{pedido.precio}}€</b></p>
+                        </section>
+                        <hr>
+                        <section class="pedido-acciones">
+                            <a routerLink="/editarStock" ><span class="pi pi-pencil iconos_editar mr-10"></span></a>
+                            <button data-bs-toggle="modal" data-bs-target="#modalBorrarPedido" class="borrar_rest"  (click)="subir(pedido._id)"><i class="pi pi-trash iconos_borrar"></i>.</button>
+                        </section>
+                    </div>
+                </div>
+            <p *ngIf="!disponible">No hay pedidos disponibles</p>
+            <a routerLink="/aniadirPedidos" class="enlace-todos">Añadir</a>
+        </div>
+    </div>
+</div>

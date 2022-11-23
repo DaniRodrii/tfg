@@ -1,1 +1,29 @@
-<p>editar-pedidos works!</p>
+<div id="fondo"> 
+    <div class="container" id="editarpedido">
+        <form  [formGroup]="editarPedidoForm" (submit)="editarRest()">
+            <h1>Editar pedido</h1>
+            <div class="form-group">
+                <label for="nom">Nombre: <b>{{servicio.ped.nom}}</b></label>
+                <input type="text" formControlName="nom" name="nom" class="form-control"><br>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion: <b>{{servicio.ped.descripcion}}</b></label>
+                <input type="text" formControlName="descripcion"  name="descripcion" class="form-control"><br>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio: <b>{{servicio.ped.precio}}</b></label>
+                <input type="number" formControlName="precio"   name="precio" class="form-control"><br>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección: <b>{{servicio.ped.direccion}}</b></label>
+                <input type="text" formControlName="direccion"  name="direccion" class="form-control" placeholder="Calle Oviedo 26"><br>
+            </div>
+            <div class="form-group">
+                <label for="ciudad">Ciudad: <b>{{servicio.ped.ciudad}}</b></label>
+                <input type="text" formControlName="ciudad"  name="ciudad" class="form-control"><br>
+            </div>
+            <button type="submit" class="btn">Editar</button>
+        </form>
+        <a routerLink="/verPedidos" >Volver</a>
+    </div>    
+</div>

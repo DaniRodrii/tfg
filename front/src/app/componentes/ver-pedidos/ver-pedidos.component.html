@@ -40,7 +40,7 @@
                         </section>
                         <hr>
                         <section class="pedido-acciones">
-                            <a routerLink="/editarStock" ><span class="pi pi-pencil iconos_editar mr-10"></span></a>
+                            <a routerLink="/editarPedidos" ><span class="pi pi-pencil iconos_editar mr-10" (mouseover)="subir(pedido._id)"></span></a>
                             <button data-bs-toggle="modal" data-bs-target="#modalBorrarPedido" class="borrar_rest"  (click)="subir(pedido._id)"><i class="pi pi-trash iconos_borrar"></i>.</button>
                         </section>
                     </div>

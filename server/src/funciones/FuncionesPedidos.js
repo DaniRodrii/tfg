@@ -25,11 +25,7 @@ funcionesPedidos.obtenerRestaurantes = (req, res) => {
 }
 
 funcionesPedidos.obtenerPedido = async (req, res) => {
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
-
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
+    let id=req.params.id;
     
     await pedidos.findById(id)
         .then((data) => res.json(data))
@@ -37,11 +33,7 @@ funcionesPedidos.obtenerPedido = async (req, res) => {
 }
 
 funcionesPedidos.editarPedido = (req, res) => {
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
-
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
+    let id=req.params.id;
 
     pedidos.findByIdAndUpdate(id, req.body)
         .then((data) => res.json(data))

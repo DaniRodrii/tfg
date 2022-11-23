@@ -1,9 +1,9 @@
 export interface pedidos{
     nom_rest:String,
-    titulo: String,
+    nom: String,
     descripcion: String,
     precio: Number,
-    id_rest: String,
     direccion: String,
+    ciudad: String,
     _id: String
 }

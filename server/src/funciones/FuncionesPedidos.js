@@ -1,17 +1,12 @@
 const pedidos = require('../modelos/pedidos');
+const restaurante = require('../modelos/restaurante');
 const jwt = require('jsonwebtoken')
 const funcionesPedidos = {};
 
 funcionesPedidos.crearPedido = async (req, res) => {
-    const rest=pedidos(req.body);
-    let token=req.params.id;
-    let tokenSplit=token.replace(/['"]+/g, '');
-
-    const tokenDecode=jwt.decode(tokenSplit);
-    const id=tokenDecode._id;
-    rest.id_rest=id;
-    
-    rest.save();
+    const pedido=pedidos(req.body);
+  
+    pedido.save();
     return res.status(200).json('ok');
 }
 
@@ -27,7 +22,14 @@ funcionesPedidos.obtenerPedidos = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
-funcionesPedidos.obtenerEmp = async (req, res) => {
+funcionesPedidos.obtenerRestaurantes = (req, res) => {
+
+    restaurante.find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+}
+
+funcionesPedidos.obtenerPedido = async (req, res) => {
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 
@@ -39,7 +41,7 @@ funcionesPedidos.obtenerEmp = async (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
-funcionesPedidos.editarEmp = (req, res) => {
+funcionesPedidos.editarPedido = (req, res) => {
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 
@@ -51,7 +53,7 @@ funcionesPedidos.editarEmp = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
-funcionesPedidos.borrarEmp = (req, res) => {
+funcionesPedidos.borrarPedido = (req, res) => {
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 

@@ -3,6 +3,7 @@ const rutasUsuario = require('./rutas/usuarios');
 const rutasRest = require('./rutas/restaurante');
 const rutasEmp = require('./rutas/empleado');
 const rutasStock = require('./rutas/stock');
+const rutasPedidos = require('./rutas/pedidos');
 const app =express();
 const cors = require('cors');
 const join = require("path").join;
@@ -23,6 +24,7 @@ app.use('/api/usuarios', rutasUsuario);
 app.use('/api/restaurante', rutasRest);
 app.use('/api/empleado', rutasEmp);
 app.use('/api/stock', rutasStock);
+app.use('/api/pedidos', rutasPedidos);
 
 
 //rutas 
@@ -30,4 +32,4 @@ app.get('/', (req, res) => {
     res.send('Bienvenido'); 
 });
 
-module.exports = app;
+module.exports = app; 

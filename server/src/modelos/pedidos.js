@@ -6,7 +6,7 @@ const DatosPedidos = mongoose.Schema({
         require: true
     },
 
-    titulo: {
+    nom: {
         type: String,
         require: true
     },
@@ -22,6 +22,11 @@ const DatosPedidos = mongoose.Schema({
     },
 
     direccion: {
+        type: String,
+        require: true
+    },
+
+    ciudad: {
         type: String,
         require: true
     }

@@ -96,8 +96,7 @@ export class EditarPedidosComponent implements OnInit {
           swal.fire({
             title: 'Pedido editado', 
             icon: 'success',
-            width: 400,
-            color:'white'
+            width: 400
     
            }).then(()=>{
               this.ngOnInit();

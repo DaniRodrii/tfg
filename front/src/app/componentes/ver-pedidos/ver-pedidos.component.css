@@ -62,5 +62,16 @@ input.ng-invalid.ng-touched{
     text-decoration: none;
 }
 
+.filtrar{
+    float:left;
+    text-align: left;
+}
+
+.ordenar{
+    float:right;
+    text-align: right;
+}
+
+
 
 

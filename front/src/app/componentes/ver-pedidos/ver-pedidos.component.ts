@@ -12,26 +12,56 @@ export class VerPedidosComponent implements OnInit {
 
   constructor(public servicio: PedidosService, private router: Router, private renderer: Renderer2) { }
   disponible=false;
+  opcionSeleccionado: string  = '0';
+  verSeleccion: string        = '';
 
-  // @ViewChild('table') table!: ElementRef;
+  opcionSeleccionado2: string  = '0';
+  verSeleccion2: string        = '';
 
   ngOnInit(): void {
     if(localStorage.getItem("token")){
       this.cargar();
+      this.cargarRest();
     }
   }
 
   cargar(){
     this.servicio.obtenerPedidos().subscribe(
       res=>{
-        let empleados=JSON.stringify(res);
-          this.servicio.pedidos=JSON.parse(empleados);
+        let pedidos=JSON.stringify(res);
+          this.servicio.pedidos=JSON.parse(pedidos);
           this.disponible=true;
       },
       err=> {
         console.log(err)
         this.disponible=false;
       })
+  }
+
+  cargarRest(){
+    this.servicio.cargarRestaurantes().subscribe(
+      res=>{
+        let datos=JSON.stringify(res);
+        this.servicio.pedidos2=JSON.parse(datos);
+        if(this.servicio.pedidos2.length<=0){
+          swal.fire({
+            title: 'Error',  
+            text: 'No hay restaurantes añadidos',  
+            icon: 'warning',
+            width: 400,
+            color:'white',
+            background:'#8c004b'
+    
+           }).then(()=>{
+              this.router.navigate(["/"]);
+          });
+          
+        }
+      },
+      err=> {
+        console.log(err)
+      }
+    )
   }
 
   subir(id: any){
@@ -55,6 +85,49 @@ export class VerPedidosComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  filtrar(){
+    this.verSeleccion = this.opcionSeleccionado;
+    if(this.verSeleccion != '0'){
+      this.servicio.filtrado(this.verSeleccion).subscribe(
+        res => {
+          let pedidos=JSON.stringify(res);
+          this.servicio.pedidos=JSON.parse(pedidos);
+        }, 
+        err => {
+          console.log(err);
+        }
+      );
+    }else{
+      this.cargar();
+    }
+  }
+
+  ordenar(){
+    this.verSeleccion2 = this.opcionSeleccionado2;
+    let pedidos;
+    if(this.verSeleccion2 != '0'){
+      if(this.verSeleccion2 == 'precio'){
+       this.servicio.pedidos.sort(function (a:any, b:any){
+          return (b.precio - a.precio)
+        })
+      }else{
+        this.servicio.pedidos.sort(function (a:any, b:any){
+          if (a.nom > b.nom) {
+            return 1;
+          }
+          if (a.nom < b.nom) {
+            return -1;
+          }
+          return 0;
+        })
+      }
+
+    }else{
+      this.cargar();
+    }
+    
   }
 
 }

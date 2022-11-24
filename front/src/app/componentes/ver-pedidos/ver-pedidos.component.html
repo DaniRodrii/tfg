@@ -21,6 +21,25 @@
     <div class="container">
       <div id="verEmp">
         <h1>Pedidos</h1>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-6 filtrar">
+            <span>Filtrar pedidos por restaurante:</span>
+            <select [(ngModel)]="opcionSeleccionado" name="nom_rest" (change)="filtrar()">
+              <option selected value="0">Elija restaurante</option>
+              <option [value]="rest.nom_rest" *ngFor="let rest of servicio.pedidos2">{{rest.nom_rest}}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-6 ordenar">
+            <span>Ordenar pedidos:</span>
+            <select [(ngModel)]="opcionSeleccionado2" name="nom_rest" (change)="ordenar()">
+              <option value="0" selected>Ordenar por</option>
+              <option value="precio">Precio</option>
+              <option value="nombre">Nombre</option>
+            </select>
+          </div>
+
+        </div>
                 <div class="row" *ngIf="disponible">
                     <div  class="col-12 col-md-4 col-sm-12 pedido" *ngFor="let pedido of servicio.pedidos">
                         <hr>

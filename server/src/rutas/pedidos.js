@@ -6,6 +6,7 @@ router.post('/aniadir', pedido.crearPedido);
 router.get('/verPedidos', pedido.obtenerPedidos);
 router.get('/verRests', pedido.obtenerRestaurantes);
 router.get('/:id', pedido.obtenerPedido);
+router.get('/filtrado/:id', pedido.filtrarPedido);
 router.put('/:id', pedido.editarPedido);
 router.delete('/:id', pedido.borrarPedido);
 

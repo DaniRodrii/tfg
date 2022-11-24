@@ -48,4 +48,12 @@ funcionesPedidos.borrarPedido = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesPedidos.filtrarPedido = (req, res) => {
+    let nombre=req.params.id;
+
+    pedidos.find({nom_rest:nombre})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+}
+
 module.exports = funcionesPedidos;

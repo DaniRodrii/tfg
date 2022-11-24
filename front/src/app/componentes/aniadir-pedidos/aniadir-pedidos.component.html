@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="nom_rest">Restaurante</label><br>
                 <select name="nom_rest" formControlName="nom_rest"  name="nom_rest">
-                    <option selected value=0>Elija restaurante</option>
+                    <option selected disabled>Elija restaurante</option>
                     <option [value]="rest.nom_rest" *ngFor="let rest of servicio.pedidos" class="form-control">{{rest.nom_rest}}</option>
                 </select>
             </div>

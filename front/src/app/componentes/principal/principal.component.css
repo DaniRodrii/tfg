@@ -1,5 +1,6 @@
 #fondo{
     background-image: url('../../../assets/rest-fondo.webp');   
+    background-size: cover;
     padding-top:80px;
     padding-bottom:80px;
 }

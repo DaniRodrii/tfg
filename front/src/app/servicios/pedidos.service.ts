@@ -10,6 +10,8 @@ export class PedidosService {
   url_api = 'http://localhost:4000/api/pedidos';
 
   pedidos !: pedidos[];
+  pedidos2 !: pedidos[];
+
   ped: pedidos = {
     nom_rest:'',
     nom: '',
@@ -19,6 +21,8 @@ export class PedidosService {
     ciudad: '',
     _id: ''
   }
+
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -44,6 +48,10 @@ export class PedidosService {
 
   verPedido(id: any){
     return this.http.get(this.url_api + '/'+id);
+  }
+
+  filtrado(nom: string){
+    return this.http.get(this.url_api + '/filtrado/'+nom);
   }
   
 }

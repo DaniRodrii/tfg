@@ -62,3 +62,11 @@
 .enlace-todos:hover{
     color:rgb(93, 91, 197);
 } 
+
+.direccion-filtrar{
+    text-align:left;
+}
+
+.mesas-filtrar{
+    text-align:right;
+}

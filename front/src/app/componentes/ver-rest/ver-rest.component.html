@@ -52,6 +52,24 @@
             </tbody>
         </table>
         <a routerLink="/" class="enlace-todos">Ver todos los pedidos</a>
+        <div class="row">
+          <div name="direccion-filtrar" class="col-md-6 col-6 col-sm-6">
+            <span>Filtrar restaurantes por dueño:</span>
+              <select [(ngModel)]="opcionSeleccionado" name="filtro" (change)="filtrarDir()">
+                <option selected value="0">Elija dueño</option>
+                <option [value]="rest.nom_dueno" *ngFor="let rest of servicio.rest2">{{rest.nom_dueno}}</option>
+              </select>
+          </div>
+          <div name="mesas-filtrar" class="col-md-6 col-6 col-sm-6">
+            <span>Filtrar restaurantes por mesas:</span>
+              <select [(ngModel)]="opcionSeleccionado2" name="filtro" (change)="filtrarMesas()">
+                <option selected value="0">Numero maximo de mesas</option>
+                <option value='10'>10</option>
+                <option value='50'>50</option>
+                <option value='100'>100</option>
+              </select>
+          </div>
+        </div>
         </div>
     </div>
   </div>

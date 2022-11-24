@@ -64,12 +64,30 @@ funcionesRestaurante.borrarRest = (req, res) => {
 
     const tokenDecode=jwt.decode(tokenSplit);
     const id=tokenDecode._id; 
-
-    restaurante.findByIdAndDelete(id)
+ 
+    restaurante.findByIdAndDelete(id) 
         .then(
             empleado.findOneAndDelete({id_rest:id}).then((data) => res.json(data))
         )
         .catch((error) => res.json({message: error}));
 }
+
+funcionesRestaurante.filtradoDir = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id; 
+    let nom_dueno=req.body.nom_dueno;
+ 
+    
+
+    restaurante.find({nom_dueno: nom_dueno, id_user:id})
+        .then(
+            (data) => res.json(data)
+        )
+        .catch((error) => res.json({message: error}));
+}
+ 
 
 module.exports = funcionesRestaurante; 

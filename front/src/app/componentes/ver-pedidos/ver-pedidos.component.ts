@@ -106,7 +106,6 @@ export class VerPedidosComponent implements OnInit {
 
   ordenar(){
     this.verSeleccion2 = this.opcionSeleccionado2;
-    let pedidos;
     if(this.verSeleccion2 != '0'){
       if(this.verSeleccion2 == 'precio'){
        this.servicio.pedidos.sort(function (a:any, b:any){

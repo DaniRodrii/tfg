@@ -8,6 +8,7 @@ import { restaurante } from 'src/app/descripciones/restaurante';
 export class RestauranteService {
   
   rest !: restaurante[];
+  rest2 !: restaurante[];
 
  
   restaur: restaurante = {
@@ -47,5 +48,12 @@ export class RestauranteService {
   editarRestauranteDatos(form: FormData, token: string){
     return this.http.put(this.url_api +'/'+token, form);
   }
+
+  filtradoDireccion(datos: object, id:string){
+    return this.http.post(this.url_api +'/filtrarDireccion/'+id, datos);
+  } 
+
 }
+
+
  

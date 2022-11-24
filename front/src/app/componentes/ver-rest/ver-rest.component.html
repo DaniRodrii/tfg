@@ -17,6 +17,7 @@
     </div>
   </div>
 
+  
 
 <div id="fondo">
     <div class="container">
@@ -25,11 +26,11 @@
           <table class="table table-dark table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Nombre restaurante</th>
-                    <th scope="col">Nombre del dueño</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Numero de mesas</th>
-                    <th scope="col">Dirección</th>
+                    <th scope="col" (click)="ordenar('nom_rest')">Nombre restaurante</th>
+                    <th scope="col" (click)="ordenar('nom_dueno')">Nombre del dueño</th>
+                    <th scope="col" (click)="ordenar('telefono')">Teléfono</th>
+                    <th scope="col" (click)="ordenar('mesas')">Numero de mesas</th>
+                    <th scope="col" (click)="ordenar('direccion')">Dirección</th>
                     <th scope="col">Empleados</th>
                     <th scope="col">Stock</th>
                     <th scope="col">Editar</th>

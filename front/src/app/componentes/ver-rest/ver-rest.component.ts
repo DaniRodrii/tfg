@@ -14,6 +14,7 @@ export class VerRestComponent implements OnInit {
   
   rest={};
   
+  
   ngOnInit(): void {
     if(localStorage.getItem('token')){
       let token=localStorage.getItem('token')!;
@@ -57,5 +58,46 @@ export class VerRestComponent implements OnInit {
       )
   }
 
- 
+  ordenar(categoria: string){
+    if(categoria == 'nom_rest'){
+      this.servicio.rest.sort(function (a:any, b:any){
+        if (a.nom_rest > b.nom_rest) {
+          return 1;
+        }
+        if (a.nom_rest < b.nom_rest) {
+          return -1;
+        }
+        return 0;
+      })
+    }else if(categoria == 'nom_dueno'){
+        this.servicio.rest.sort(function (a:any, b:any){
+          if (a.nom_dueno > b.nom_dueno) {
+            return 1;
+          }
+          if (a.nom_dueno < b.nom_dueno) {
+            return -1;
+          }
+          return 0;
+        })
+    }else if(categoria == 'telefono'){
+      this.servicio.rest.sort(function (a:any, b:any){
+        return (b.telefono - a.telefono)
+      })
+    }else if(categoria == 'mesas'){
+      this.servicio.rest.sort(function (a:any, b:any){
+        return (b.mesas - a.mesas)
+      })
+    }else if(categoria == 'direccion'){
+      this.servicio.rest.sort(function (a:any, b:any){
+        if (a.direccion > b.direccion) {
+          return 1;
+        }
+        if (a.direccion < b.direccion) {
+          return -1;
+        }
+        return 0;
+      })
+    }
+  }
+
 }

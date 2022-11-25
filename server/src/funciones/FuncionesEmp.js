@@ -78,4 +78,28 @@ funcionesEmp.borrarEmp = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesEmp.filtradoDNI = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id; 
+
+    empleado.find({id_rest:id, DNI: req.body.DNI})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+}
+
+funcionesEmp.filtradoCargo = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id; 
+
+    empleado.find({id_rest:id, cargo: req.body.cargo})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+}
+
 module.exports = funcionesEmp;

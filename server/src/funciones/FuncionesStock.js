@@ -62,4 +62,18 @@ funcionesStock.borrarProd = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
+funcionesStock.filtradoNom = async (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+    
+    const rest = await restaurante.findOne({_id:id});
+
+    stock.find({nom_rest:rest.nom_rest, nom_prod:req.body.nom_prod})
+        .then((data) => res.json(data))
+        .catch((error) => res.json({message: error}));
+}
+
 module.exports = funcionesStock; 

@@ -34,11 +34,13 @@
             </div>
             <div name="mesas-filtrar" class="col-md-6 col-6 col-sm-6">
               <span>Cargo:</span>
-                <select [(ngModel)]="opcionSeleccionado2" name="filtro" (change)="filtrarCargo()">
-                  <option selected value="0">Numero maximo de mesas</option>
-                  <option value='10'>10</option>
-                  <option value='50'>50</option>
-                  <option value='100'>100</option>
+                <select name="filtro" (change)="filtrarCargo()" [(ngModel)]="opcionSeleccionado">
+                  <option selected value="0">Elija un cargo</option>
+                  <option value='Camarero'>Camarero</option>
+                  <option value='Bartender'>Bartender</option>
+                  <option value='Cajero'>Cajero</option>
+                  <option value='Cocinero'>Cocinero</option>
+                  
                 </select>
             </div>
           </div>

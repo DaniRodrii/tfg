@@ -8,6 +8,7 @@ import { empleado } from 'src/app/descripciones/empleado';
 export class EmpleadoService {
 
   emp !: empleado[];
+  emp2 !: empleado[];
 
   empleado: empleado = {
     nom_emp: '',
@@ -53,7 +54,11 @@ export class EmpleadoService {
   }
 
   buscarDNI(form: FormData, token: string){
-    return this.http.put(this.url_api +'/filtrarDNI'+token, form);
+    return this.http.post(this.url_api +'/filtrarDNI/'+token, form);
+  }
+
+  filtrarCargo(cargo: object, token: string){
+    return this.http.post(this.url_api +'/filtrarCargo/'+token, cargo);
   }
 }
  

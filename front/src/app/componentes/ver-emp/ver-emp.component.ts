@@ -15,18 +15,18 @@ export class VerEmpComponent implements OnInit {
   public aniadirEmpForm!: FormGroup;
   public filtradoDNI!: FormGroup;
   tituloAlerta: string = '';
+  opcionSeleccionado: string  = '0';
+  verSeleccion: string        = '';
   ngOnInit(): void {
     if(localStorage.getItem('token') && localStorage.getItem('rest')){
-      let token=localStorage.getItem('rest')!;
-      this.servicio.obtenerEmpleados(token).subscribe(
-        res => {
-          let empleados=JSON.stringify(res);
-          this.servicio.emp=JSON.parse(empleados);
-        },
-        err => {
-          console.log(err)
-        }
-      ) 
+      this.cargar();  
+      
+
+       this.filtradoDNI = this.fb.group({
+        DNI:['', [
+          Validators.pattern(/^[0-9]{8}[A-Z]{1}$/)
+        ]]
+        })
 
       this.aniadirEmpForm = this.fb.group({
         nom_emp:['', [
@@ -55,6 +55,19 @@ export class VerEmpComponent implements OnInit {
     if(localStorage.getItem('emp')){
       localStorage.removeItem('emp');
     }
+  }
+
+
+  cargar(){
+    let token=localStorage.getItem('rest')!;
+      this.servicio.obtenerEmpleados(token).subscribe(
+        res => {
+          let empleados=JSON.stringify(res);
+          this.servicio.emp=JSON.parse(empleados);
+        },
+        err => {
+          console.log(err)
+        })
   }
 
   aniadir(){
@@ -122,18 +135,14 @@ export class VerEmpComponent implements OnInit {
     }
   }
 
-  filtrarCargo(){
-
-  }
-
   filtrarDNI(){
     let token=localStorage.getItem('rest')!
     this.servicio.buscarDNI(this.filtradoDNI.value, token).subscribe(
       res=>{
-        let restaurante=JSON.stringify(res);
-        let rest=JSON.parse(restaurante);
-
-        if(rest.length == 0){
+        let empleado=JSON.stringify(res);
+        let empl=JSON.parse(empleado);
+        console.log(empl)
+        if(empl.length == 0){
           swal.fire({
             title: 'El dueño no existe', 
             icon: 'warning',
@@ -142,7 +151,7 @@ export class VerEmpComponent implements OnInit {
             this.ngOnInit();
            });
         }else{
-          this.servicio.emp=rest;
+          this.servicio.emp=empl;
         }
       },
       err => {
@@ -150,5 +159,25 @@ export class VerEmpComponent implements OnInit {
       }
         )
   }
+
+  filtrarCargo(){
+    let token=localStorage.getItem('rest')!
+    this.verSeleccion=this.opcionSeleccionado;
+    let cargo={cargo:this.verSeleccion}
+   if(this.verSeleccion == '0'){
+    this.cargar();
+   }else{
+    this.servicio.filtrarCargo(cargo, token).subscribe(
+      res => {
+        let empleados=JSON.stringify(res);
+        this.servicio.emp=JSON.parse(empleados);
+      },
+      err => {
+        console.log(err)
+      })
+   }
+    
+  }
+
 
 }

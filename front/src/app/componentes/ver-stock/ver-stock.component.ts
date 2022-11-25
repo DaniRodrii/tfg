@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StockService } from '../../servicios/stock.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from'sweetalert2';
 
 @Component({
@@ -10,14 +11,20 @@ import swal from'sweetalert2';
 })
 export class VerStockComponent implements OnInit {
 
-  constructor(public servicio: StockService, private router: Router) { }
-
+  constructor(public servicio: StockService, private router: Router, private fb: FormBuilder) { }
+  public filtradonombre!: FormGroup;
   ngOnInit(): void {
     if(localStorage.getItem('token') && localStorage.getItem('rest')){
       this.cargar();
     }else{
       this.router.navigate(['verRestaurante']);
     }
+
+    this.filtradonombre = this.fb.group({
+      nom_prod:['', [
+        Validators.pattern(/^[A-za-z]+(\s[A-za-z]+)*$/)
+      ]]
+    })
 
     if(sessionStorage.getItem('stock')){
       sessionStorage.removeItem('stock');
@@ -91,6 +98,31 @@ export class VerStockComponent implements OnInit {
         return 0;
       })
     }
+  }
+
+  filtrarNombre(){
+    let token=localStorage.getItem('rest')!;
+      this.servicio.filtrarNombreProd(token, this.filtradonombre.value).subscribe(
+        res => {
+          let prod=JSON.stringify(res);
+          let stock=JSON.parse(prod);
+
+          if(stock.length == 0){
+            swal.fire({
+              title: 'El producto no existe', 
+              icon: 'warning',
+              width: 400,
+             }).then(()=>{
+              this.ngOnInit();
+             });
+          }else{
+            this.servicio.stock=stock;
+          }
+        },
+        err => {
+          console.log(err)
+        }
+      ) 
   }
 
 }

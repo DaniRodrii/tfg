@@ -43,4 +43,8 @@ export class StockService {
     return this.http.get(this.url_api +'/'+id);
   }
 
+  filtrarNombreProd(id: any, form: FormData){
+    return this.http.post(this.url_api +'/filtrarNom/'+id, form);
+  }
+
 }

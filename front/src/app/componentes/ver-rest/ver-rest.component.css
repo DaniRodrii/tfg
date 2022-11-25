@@ -65,8 +65,34 @@
 
 .direccion-filtrar{
     text-align:left;
+    float:left;
 }
 
 .mesas-filtrar{
     text-align:right;
+}
+
+.nom_rest{
+    border: none;
+    border-bottom: 1px solid rgb(171, 0, 206);
+    background: none;
+    width: 250px;
+    outline: none;
+    margin: auto;
+    display:block;
+}
+
+.filtrado{
+    margin: auto;
+    display:block;
+    margin-top:20px;
+    margin-bottom:10px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(167, 157, 148);
+}
+
+.filtrado:hover{
+    background-color: rgb(32, 32, 32);
 }

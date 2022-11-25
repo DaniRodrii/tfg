@@ -22,10 +22,30 @@
     <div class="container">
       <div id="verEmp">
         <hr><h1>Empleados</h1>
+        <div class="row">
+            <div name="direccion-filtrar" class="col-md-6 col-6 col-sm-6">
+              <span>DNI:</span>
+                <form [formGroup]="filtradoDNI" (submit)="filtrarDNI()">
+                  <div class="form-group">
+                    <input type="text" formControlName="DNI" name="DNI" class="form-control nom_rest"  required><br>
+                    <button type="submit" class="btn filtrado" [disabled]="filtradoDNI.invalid">Añadir</button>
+                  </div>
+                </form>
+            </div>
+            <div name="mesas-filtrar" class="col-md-6 col-6 col-sm-6">
+              <span>Cargo:</span>
+                <select [(ngModel)]="opcionSeleccionado2" name="filtro" (change)="filtrarCargo()">
+                  <option selected value="0">Numero maximo de mesas</option>
+                  <option value='10'>10</option>
+                  <option value='50'>50</option>
+                  <option value='100'>100</option>
+                </select>
+            </div>
+          </div>
             <table class="table table-dark table-striped">
                 <thead>
                     <tr >
-                        <th>Nombre empleado</th>
+                        <th (click)="ordenar('nom_emp')">Nombre empleado</th>
                         <th>Sexo</th>
                         <th>Edad</th>
                         <th>Cargo</th>

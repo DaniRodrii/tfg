@@ -59,4 +59,38 @@ export class VerStockComponent implements OnInit {
       }
     ) 
   }
+
+
+  ordenar(categoria: string){
+    if(categoria == 'nom'){
+        this.servicio.stock.sort(function (a:any, b:any){
+          if (a.nom_prod > b.nom_prod) {
+            return 1;
+          }
+          if (a.nom_prod < b.nom_prod) {
+            return -1;
+          }
+          return 0;
+        })
+    }else if(categoria == 'cantidad'){
+      this.servicio.stock.sort(function (a:any, b:any){
+        return (b.cantidad - a.cantidad)
+      })
+    }else if(categoria == 'coste_total'){
+      this.servicio.stock.sort(function (a:any, b:any){
+        return (b.coste_total - a.coste_total)
+      })
+    }else if(categoria == 'estado'){
+      this.servicio.stock.sort(function (a:any, b:any){
+        if (a.estado > b.estado) {
+          return 1;
+        }
+        if (a.estado < b.estado) {
+          return -1;
+        }
+        return 0;
+      })
+    }
+  }
+
 }

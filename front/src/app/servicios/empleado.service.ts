@@ -51,5 +51,9 @@ export class EmpleadoService {
   editarEmpleado(form: FormData, token: string){
     return this.http.put(this.url_api +'/'+token, form);
   }
+
+  buscarDNI(form: FormData, token: string){
+    return this.http.put(this.url_api +'/filtrarDNI'+token, form);
+  }
 }
  

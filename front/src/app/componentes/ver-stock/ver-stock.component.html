@@ -6,12 +6,12 @@
         <div class="col-12 p-20">
           <table class="table table-dark table-striped">
             <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Coste total</th>
+                <tr> 
+                    <th scope="col" (click)="ordenar('nom')">Nombre</th>
+                    <th scope="col" (click)="ordenar('cantidad')">Cantidad</th>
+                    <th scope="col" (click)="ordenar('coste_total')">Coste total</th>
                     <th scope="col">Nombre restaurante</th>
-                    <th scope="col">Estado</th>
+                    <th scope="col" (click)="ordenar('estado')">Estado</th>
                     <th scope="col">Editar</th>
                     <th scope="col">Borrar</th>
                 </tr>

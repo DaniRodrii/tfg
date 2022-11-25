@@ -1,25 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestauranteService } from 'src/app/servicios/restaurante.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import swal from'sweetalert2';
 
 @Component({
   selector: 'app-ver-rest',
   templateUrl: './ver-rest.component.html',
   styleUrls: ['./ver-rest.component.css']
-})
+}) 
 export class VerRestComponent implements OnInit {
 
-  constructor(public servicio: RestauranteService, private router: Router) { }
-  
+  constructor(public servicio: RestauranteService, private router: Router, private fb: FormBuilder) { }
+  public filtrarRestForm!: FormGroup;
   rest={};
   opcionSeleccionado: string  = '0';
   verSeleccion: string        = '';
   opcionSeleccionado2: string  = '0';
   ngOnInit(): void {
+    this.filtrarRestForm = this.fb.group({
+      nom_dueno:['', [
+        Validators.pattern(/^[A-za-z]+(\s[A-za-z]+)*$/)
+      ]]
+    })
     if(localStorage.getItem('token')){
       this.cargar();
-      this.cargarRest();
     }
 
     if(localStorage.getItem('rest')){
@@ -106,55 +111,6 @@ export class VerRestComponent implements OnInit {
     }
   }
 
-  filtrarDir(){
-    let token=localStorage.getItem('token')!
-    this.verSeleccion=this.opcionSeleccionado;
-    
-    let nom={nom_dueno: this.verSeleccion};
-    if(this.verSeleccion != '0'){
-      this.servicio.filtradoDireccion(nom, token).subscribe(
-        res=>{
-          let restaurante=JSON.stringify(res);
-            this.servicio.rest=JSON.parse(restaurante);
-        },
-        err => {
-          console.log(err)
-        }
-          )
-    }else{
-      this.cargar();
-    }
-    
-  }
-
-  cargarRest(){
-    let token=localStorage.getItem('token')!
-    this.servicio.obtenerRestaurantes(token).subscribe(
-      res=>{
-        let datos=JSON.stringify(res);
-        this.servicio.rest2=JSON.parse(datos);
-        console.log(this.servicio.rest2);
-        if(this.servicio.rest2.length<=0){
-          swal.fire({
-            title: 'Error',  
-            text: 'No hay restaurantes añadidos',  
-            icon: 'warning',
-            width: 400,
-            color:'white',
-            background:'#8c004b'
-    
-           }).then(()=>{
-              this.router.navigate(["/"]);
-          });
-          
-        }
-      },
-      err=> {
-        console.log(err)
-      }
-    )
-  }
-
   filtrarMesas(){
     let token=localStorage.getItem('token')!
     this.verSeleccion=this.opcionSeleccionado2;
@@ -188,6 +144,31 @@ export class VerRestComponent implements OnInit {
     }else{
       this.cargar();
     }
+  }
+
+  filtrarNomRest(){
+    let token=localStorage.getItem('token')!
+    this.servicio.filtradoDuenos(this.filtrarRestForm.value, token).subscribe(
+      res=>{
+        let restaurante=JSON.stringify(res);
+        let rest=JSON.parse(restaurante);
+
+        if(rest.length == 0){
+          swal.fire({
+            title: 'El dueño no existe', 
+            icon: 'warning',
+            width: 400,
+           }).then(()=>{
+            this.ngOnInit();
+           });
+        }else{
+          this.servicio.rest=rest;
+        }
+      },
+      err => {
+        console.log(err)
+      }
+        )
   }
 
 }

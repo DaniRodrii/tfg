@@ -13,6 +13,7 @@ export class VerEmpComponent implements OnInit {
 
   constructor(public servicio: EmpleadoService, private router: Router, private fb: FormBuilder) { }
   public aniadirEmpForm!: FormGroup;
+  public filtradoDNI!: FormGroup;
   tituloAlerta: string = '';
   ngOnInit(): void {
     if(localStorage.getItem('token') && localStorage.getItem('rest')){
@@ -105,6 +106,49 @@ export class VerEmpComponent implements OnInit {
       localStorage.setItem('emp', JSON.stringify(res));
     }
       )
+  }
+
+  ordenar(categoria: string){
+    if(categoria == 'nom_emp'){
+      this.servicio.emp.sort(function (a:any, b:any){
+        if (a.nom_emp > b.nom_emp) {
+          return 1;
+        }
+        if (a.nom_emp < b.nom_emp) {
+          return -1;
+        }
+        return 0;
+      }) 
+    }
+  }
+
+  filtrarCargo(){
+
+  }
+
+  filtrarDNI(){
+    let token=localStorage.getItem('rest')!
+    this.servicio.buscarDNI(this.filtradoDNI.value, token).subscribe(
+      res=>{
+        let restaurante=JSON.stringify(res);
+        let rest=JSON.parse(restaurante);
+
+        if(rest.length == 0){
+          swal.fire({
+            title: 'El dueño no existe', 
+            icon: 'warning',
+            width: 400,
+           }).then(()=>{
+            this.ngOnInit();
+           });
+        }else{
+          this.servicio.emp=rest;
+        }
+      },
+      err => {
+        console.log(err)
+      }
+        )
   }
 
 }

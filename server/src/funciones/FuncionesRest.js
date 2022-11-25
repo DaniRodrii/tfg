@@ -72,7 +72,7 @@ funcionesRestaurante.borrarRest = (req, res) => {
         .catch((error) => res.json({message: error}));
 }
 
-funcionesRestaurante.filtradoDir = (req, res) => {
+funcionesRestaurante.filtradoDueno = (req, res) => {
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 
@@ -84,7 +84,13 @@ funcionesRestaurante.filtradoDir = (req, res) => {
 
     restaurante.find({nom_dueno: nom_dueno, id_user:id})
         .then(
-            (data) => res.json(data)
+            (data) => {
+                if(data.lenght == 0){
+                    res.message('El dueño no existe')
+                }else{
+                    res.send(data);
+                }
+            }
         )
         .catch((error) => res.json({message: error}));
 }

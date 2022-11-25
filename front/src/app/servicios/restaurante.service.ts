@@ -49,8 +49,8 @@ export class RestauranteService {
     return this.http.put(this.url_api +'/'+token, form);
   }
 
-  filtradoDireccion(datos: object, id:string){
-    return this.http.post(this.url_api +'/filtrarDireccion/'+id, datos);
+  filtradoDuenos(datos: FormData, id:string){
+    return this.http.post(this.url_api +'/filtrarDueno/'+id, datos);
   } 
 
 }

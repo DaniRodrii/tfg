@@ -6,7 +6,7 @@ router.post('/aniadir/:id', restaurante.crearRest);
 router.post('/cifrar/:id', restaurante.cifrarId);
 router.get('/verRests/:id', restaurante.obtenerRests);
 router.get('/:id', restaurante.obtenerRest);
-router.post('/filtrarDireccion/:id', restaurante.filtradoDir);
+router.post('/filtrarDueno/:id', restaurante.filtradoDueno);
 router.put('/:id', restaurante.editarRest);
 router.delete('/:id', restaurante.borrarRest);
 

@@ -43,6 +43,10 @@ export class LoginUsuarioComponent implements OnInit {
     this.servicio.login(this.loginForm.value).subscribe(
       res => {
         localStorage.setItem('token', JSON.stringify(res));
+        const d = new Date();
+      d.setTime(d.getTime() + (60*60*1000));
+      let expires = d.toUTCString();
+      document.cookie = 'sesion=true; expires = '+expires+' ;';
         this.router.navigate(['/'])
           .then(() => {
             window.location.reload();

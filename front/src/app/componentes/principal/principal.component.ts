@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';     
+import swal from 'sweetalert2';
 
 
 @Component({
@@ -28,7 +29,45 @@ export class PrincipalComponent implements OnInit {
       this.renderer.setStyle(img, 'margin-right', '10px');
       
       this.renderer.appendChild(navBar, a);
+
+      let cookies = document.cookie;
+      let cookieSplit=cookies.split(";");
+      let existe=false;
+      for(let i=0; i<cookieSplit.length; i++){
+        let valor=cookieSplit[i].split("=");
+        if(valor[1].trim()=="true"){
+          existe=true;
+        }
+      }
+
+
+      if(!existe){
+        swal.fire({
+          title: 'Su sesión ha finalizado',  
+          text: '¿Quiere extenderla?',  
+          icon: 'info',
+          width: 400,
+          showCancelButton: true,
+          confirmButtonText: 'Extender sesión',
+          cancelButtonText: 'Cancelar'
+  
+         }).then((result)=>{
+          if(result.isConfirmed){
+            const d = new Date();
+            d.setTime(d.getTime() + (60*60*1000));
+            let expires = d.toUTCString();
+            document.cookie = 'sesion=true; expires = '+expires+' ;';
+          }else{
+            localStorage.removeItem("token");
+            this.router.navigate(["/verUser"]);
+          }
+         });
+      }
+
+      
     }
+
+    
     
   }
 

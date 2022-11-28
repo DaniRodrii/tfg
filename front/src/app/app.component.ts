@@ -22,7 +22,6 @@ export class AppComponent {
         res => {
           let user=JSON.stringify(res);
           this.servicio.usuario=JSON.parse(user);
-          this.ngOnInit();
         },
         err => {
            console.error(err);

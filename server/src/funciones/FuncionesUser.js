@@ -1,5 +1,10 @@
-
+// Modelos
 const usuario = require('../modelos/usuario');
+const stock = require('../modelos/stock');
+const restaurante = require('../modelos/restaurante');
+const pedido = require('../modelos/pedidos');
+const empleado = require('../modelos/empleado');
+
 const jwt = require('jsonwebtoken')
 const funcionesUsuario = {};
 const bcrypt = require("bcryptjs");
@@ -114,16 +119,46 @@ funcionesUsuario.editarUsers = (req, res) => {
 };
 
 //Borrar usuarios
-funcionesUsuario.borrarUsers = (req, res) => {
+funcionesUsuario.borrarUsers =  async (req, res) => {
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 
     const tokenDecode=jwt.decode(tokenSplit);
     const id=tokenDecode._id; 
 
-    usuario.findByIdAndDelete(id)
-        .then((data) => res.json(data))
-        .catch((error) => res.json({message: error}));
+    await usuario.findByIdAndDelete(id);
+        
+    let restaurantes=[];
+    let empleados=[];
+    let productos=[];
+    let pedidos=[];
+    restaurantes= await restaurante.find({id_user:id})
+    for(let i=0; i<restaurantes.length;i++){
+        let id_rest=restaurantes[i]._id;
+        let nom_rest=restaurantes[i].nom_rest;
+        await restaurante.findByIdAndDelete(id_rest);
+
+        empleados= await empleado.find({id_rest:id_rest})
+        for(let j=0; j<empleados.length;j++){
+            let id_emp=empleados[j]._id;
+            await empleado.findByIdAndDelete(id_emp);
+        }
+
+        productos= await stock.find({nom_rest:nom_rest})
+        for(let k=0; k<productos.length;k++){
+            let id_prod=productos[k]._id;
+            await stock.findByIdAndDelete(id_prod);
+        }
+
+        pedidos= await pedido.find({nom_rest:nom_rest})
+        for(let l=0; l<pedidos.length;l++){
+            let id_pedidos=pedidos[l]._id;
+            await pedido.findByIdAndDelete(id_pedidos);
+        }
+
+
+        return res.status(200).json('ok');
+    }
 };
  
 //Subir imagen a la bbdd

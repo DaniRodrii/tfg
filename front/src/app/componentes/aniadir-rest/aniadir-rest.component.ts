@@ -13,6 +13,7 @@ export class AniadirRestComponent implements OnInit {
 
   constructor(public servicio: RestauranteService, private router: Router, private fb: FormBuilder) { }
   public aniadirRestForm!: FormGroup;
+  tituloAlerta: string = '';
   ngOnInit(): void {
     this.aniadirRestForm = this.fb.group({
       nom_rest:['', [
@@ -48,7 +49,16 @@ export class AniadirRestComponent implements OnInit {
          });
       },
       err=> {
-        console.log(err)
+        console.log(err.error.message)
+        this.tituloAlerta=JSON.stringify(err.error.message);
+        let alerta=this.tituloAlerta.replace(/['"]+/g, '');
+         swal.fire({
+          title: 'Error',  
+          text: alerta,  
+          icon: 'error',
+          width: 400,
+          background:'#ffbdb9'
+         });
       }
     )
   }

@@ -14,7 +14,8 @@ const DatosRestaurante = mongoose.Schema({
 
     telefono: {
         type: Number,
-        require: true
+        require: true,
+        unique: true
     },
 
     mesas: {

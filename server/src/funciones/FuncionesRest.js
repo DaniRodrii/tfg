@@ -3,8 +3,25 @@ const empleado = require('../modelos/empleado');
 const jwt = require('jsonwebtoken')
 const funcionesRestaurante = {};
 
-funcionesRestaurante.crearRest = (req, res) => {
+funcionesRestaurante.crearRest = async (req, res) => {
     const rest=restaurante(req.body);
+
+    let restauranteEncontrado = await restaurante.findOne({nom_rest: rest.nom_rest});
+    if(restauranteEncontrado){
+        return res.status(400).json({
+            message: "El restaurante ya existe",
+            success: false
+        })
+    }
+
+    restauranteEncontrado = await restaurante.findOne({telefono: rest.telefono});
+    if(restauranteEncontrado){
+        return res.status(400).json({
+            message: "El telefono ya existe",
+            success: false
+        })
+    }
+
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 

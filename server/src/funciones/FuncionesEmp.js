@@ -13,6 +13,15 @@ funcionesEmp.crearEmp = async (req, res) => {
         })
     }
 
+    
+    empleadoEncontrado = await empleado.findOne({telefono: rest.telefono});
+    if(empleadoEncontrado){
+        return res.status(400).json({
+            message: "El telefono ya existe",
+            success: false
+        })
+    }
+
     let token=req.params.id;
     let tokenSplit=token.replace(/['"]+/g, '');
 

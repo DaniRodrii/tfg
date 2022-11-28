@@ -102,8 +102,7 @@ export class VerEmpComponent implements OnInit {
             title: 'Error',  
             text: alerta,  
             icon: 'error',
-            width: 400,
-            background:'#ffbdb9'
+            width: 400
            });
            this.ngOnInit()
         }

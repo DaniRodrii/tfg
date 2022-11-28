@@ -31,8 +31,7 @@ export class VerUserComponent implements OnInit {
 
   cerrarSesion(){
       localStorage.clear();
-      this.router.navigate(['loginUser']);
-
+      this.ngOnInit();
   }
  
   borrarUsuario(){

@@ -155,10 +155,9 @@ funcionesUsuario.borrarUsers =  async (req, res) => {
             let id_pedidos=pedidos[l]._id;
             await pedido.findByIdAndDelete(id_pedidos);
         }
-
-
-        return res.status(200).json('ok');
     }
+
+    return res.status(200).json('ok');
 };
  
 //Subir imagen a la bbdd

@@ -72,29 +72,44 @@ export class VerEmpComponent implements OnInit {
 
   aniadir(){
     let token=localStorage.getItem("rest")!;
-    this.servicio.aniadirEmp(this.aniadirEmpForm.value, token).subscribe(
-      res=>{
-        swal.fire({
-          title: 'Empleado registrado',   
-          icon: 'success',
-          width: 400
-         }).then(()=>{
-            this.ngOnInit();
-         });
-      },
-      err=> {
-        this.tituloAlerta=JSON.stringify(err.error.message);
-        let alerta=this.tituloAlerta.replace(/['"]+/g, '');
-         swal.fire({
-          title: 'Error',  
-          text: alerta,  
-          icon: 'error',
-          width: 400,
-          background:'#ffbdb9'
-         });
-         this.ngOnInit()
-      }
-    )
+    let letra=this.aniadirEmpForm.value.DNI.charAt(this.aniadirEmpForm.value.DNI.length-1);
+    let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+    let numeros=this.aniadirEmpForm.value.DNI.substring(0, this.aniadirEmpForm.value.DNI.length-1);
+    var letraCalculada = letras[numeros % 23];
+    if(letraCalculada != letra){
+      swal.fire({
+        title: 'El DNI es falso',   
+        icon: 'error',
+        width: 400
+       }).then(()=>{
+          this.ngOnInit();
+       });
+    }else{
+      this.servicio.aniadirEmp(this.aniadirEmpForm.value, token).subscribe(
+        res=>{
+          swal.fire({
+            title: 'Empleado registrado',   
+            icon: 'success',
+            width: 400
+           }).then(()=>{
+              this.ngOnInit();
+           });
+        },
+        err=> {
+          this.tituloAlerta=JSON.stringify(err.error.message);
+          let alerta=this.tituloAlerta.replace(/['"]+/g, '');
+           swal.fire({
+            title: 'Error',  
+            text: alerta,  
+            icon: 'error',
+            width: 400,
+            background:'#ffbdb9'
+           });
+           this.ngOnInit()
+        }
+      )
+    }
+
   }
 
   borrar(){

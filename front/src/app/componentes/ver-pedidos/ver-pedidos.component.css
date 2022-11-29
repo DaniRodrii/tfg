@@ -86,4 +86,12 @@ select{
     border-radius: 5px;
 }
 
-
+@media(max-width: 576px){
+    .ordenar{
+        margin-top:23px;
+    }
+    
+    .pedido{
+        margin-top:20px;
+    }
+}

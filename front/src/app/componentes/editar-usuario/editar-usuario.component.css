@@ -10,7 +10,7 @@
     background-color:#000000;
     margin:auto;
     display: block;
-    width: 600px;
+    max-width: 600px;
     padding:20px;
     border-radius: 8px;
 }

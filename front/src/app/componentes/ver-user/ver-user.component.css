@@ -10,7 +10,7 @@
     background-color:#000000;
     margin:auto;
     display: block;
-    width: 600px;
+    max-width: 600px;
     padding:20px;
     border-radius: 8px;
 }
@@ -69,3 +69,13 @@
     background-color: rgb(171, 0, 206);
 }
 
+@media(max-width: 576px){
+    #borrar_usuario{
+        margin-top: 30px;
+    }
+    
+    
+    #cerrar_sesion{
+        margin-top: 55px;
+    }
+}

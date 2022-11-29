@@ -59,3 +59,16 @@
     display: flex;
     float: right;
 }
+
+@media(max-width: 576px){
+    .card{
+        display:flex;
+        margin: auto;
+        float:none;
+        margin-top: 30px;
+    }
+
+    .img{
+        margin-bottom:15px;
+    }
+}

@@ -44,7 +44,8 @@
                 </select>
             </div>
           </div>
-            <table class="table table-dark table-striped">
+            <div class="table-responsive">
+              <table class="table table-dark table-striped">
                 <thead>
                     <tr >
                         <th (click)="ordenar('nom_emp')">Nombre empleado</th>
@@ -70,6 +71,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
             <hr>
             <h1>Añadir empleado</h1>
             <form  [formGroup]="aniadirEmpForm" (submit)="aniadir()">

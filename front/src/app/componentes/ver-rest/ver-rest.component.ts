@@ -45,10 +45,17 @@ export class VerRestComponent implements OnInit {
     ) 
   }
  
-  subir(id: string){
+  subir(id: string, pos: number){
     this.servicio.cifrarId(id).subscribe(
     res=>{
       localStorage.setItem('rest', JSON.stringify(res));
+      if(pos==1){
+        this.router.navigate(['/verEmp']).then(()=> location.reload());
+      }else if(pos == 2){
+        this.router.navigate(['/verStock']).then(()=> location.reload());
+      }else if(pos == 3){
+        this.router.navigate(['/editarRest']).then(()=> location.reload());
+      }
     }
       ) 
   }

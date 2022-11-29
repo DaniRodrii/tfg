@@ -1,53 +1,80 @@
 #fondo{
     background-image: url('../../../assets/rest-fondo.webp');
+    background-size: cover;    
     padding-top: 100px;
     padding-bottom: 100px;
 } 
 
 #logueado{
-    border: 3px groove rgb(107, 106, 106);
-    background-color:#d2c9ec;
+    border:1px solid rgb(170, 70, 228);
+    background-color:#000000;
     margin:auto;
     display: block;
     width: 600px;
     padding:20px;
+    border-radius: 8px;
+}
+ 
+#logueado label{
+    color:#a99aff;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#logueado form p{
-    font-weight: bold;
+#logueado label b{
+    color:white;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 #logueado a{
-    color:black;
+    color:rgb(32, 197, 209);
+    text-decoration: none;
 }
 
 #logueado a:hover{
-    color:rgb(38, 36, 163);
-    text-decoration: none;
+    color:rgb(170, 70, 228);
+    
 }
 
 #logueado button{
     border: none;
     border-radius: 20px;
-    background-color: rgb(167, 157, 148);
+    background-color: #b6a9ff;
     color:white;
     margin-bottom: 20px;
 }
 
 #logueado form button:hover{
-    background-color: rgb(171, 0, 206);
+    background-color: rgb(170, 70, 228);
 }
 
 #logueado form input{
     width: 250px;
     margin-bottom: 20px;
+    background-color: #000000;
+    color:white;
+    border:1px solid white;
+    outline: none;
+}
+
+#logueado form input:hover{
+    background-color: #000000;
+    color:white;
+}
+
+
+#logueado form input::placeholder{
+    color:white !important;
+    font-size:16px;
+    background-color: #000000;
 }
 
 #logueado form button{
     margin-left: 45%;
     border: none;
     border-radius: 20px;
-    background-color: rgb(167, 157, 148);
+    background-color: #a99aff;
     color:white;
 }
 

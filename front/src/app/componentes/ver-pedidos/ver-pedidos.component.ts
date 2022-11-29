@@ -45,16 +45,10 @@ export class VerPedidosComponent implements OnInit {
         this.servicio.pedidos2=JSON.parse(datos);
         if(this.servicio.pedidos2.length<=0){
           swal.fire({
-            title: 'Error',  
-            text: 'No hay restaurantes añadidos',  
-            icon: 'warning',
-            width: 400,
-            color:'white',
-            background:'#8c004b'
-    
-           }).then(()=>{
-              this.router.navigate(["/"]);
-          });
+            title: 'No hay restaurantes añadidos',  
+            icon: 'info',
+            width: 400
+           })
           
         }
       },

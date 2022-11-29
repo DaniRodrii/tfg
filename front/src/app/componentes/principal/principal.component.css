@@ -23,6 +23,7 @@
 .info{
     background-color:rgb(14, 13, 13);
     padding:20px;
+    border-radius: 5px;
 }
 
 .info-texto{

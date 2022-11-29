@@ -31,7 +31,7 @@ export class VerUserComponent implements OnInit {
 
   cerrarSesion(){
       localStorage.clear();
-      this.ngOnInit();
+      this.router.navigate(["loginUser"]).then(()=>location.reload());
   }
  
   borrarUsuario(){
@@ -44,7 +44,7 @@ export class VerUserComponent implements OnInit {
               width: 400,
              }).then(()=>{
               localStorage.removeItem('token');
-              this.router.navigate(['loginUser']);
+              this.router.navigate(["loginUser"]).then(()=>location.reload());
              });
           },
           err => {

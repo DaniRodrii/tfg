@@ -1,46 +1,52 @@
 #fondo{
     background-image: url('../../../assets/rest-fondo.webp');  
+    background-size: cover;
     padding-top:100px;
     padding-bottom:100px;
 }
 
 #form_login{
-    border: 3px groove rgb(107, 106, 106);
-    background-color:#d2c9ec;
-    text-align: center;
+    border:1px solid rgb(170, 70, 228);
+    background-color:#000000;
+    margin:auto;
+    display: block;
     width: 600px;
-    margin: auto;
-    display:block;
-    padding-bottom:10px;
+    padding:20px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 #form_login form{
-    margin-top: 10px;
+    margin-top: 10px; 
     margin-bottom: 10px;
+}
+
+#form_login form h1{
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#form_login form label{
+    color:#a99aff;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
 #form_login form input{
     border: none;
-    border-bottom: 1px solid rgb(171, 0, 206);
+    border-bottom: 1px solid rgb(32, 197, 209);
     background: none;
     width: 250px;
     outline: none;
     margin: auto;
     display:block;
+    color:white;
 }
 
 #form_login form input::placeholder{
     text-align: center;
-}
-
-
-#form_login form h1{
-    color:#0a0a0a;
-}
-
-#form_login form label{
-    margin-top: 20px;
 }
 
 #form_login form button{
@@ -51,7 +57,7 @@
     border: none;
     border-radius: 20px;
     color: white;
-    background-color: rgb(167, 157, 148);
+    background-color: #b6a9ff;
 }
 
 #form_login form button:hover{
@@ -59,14 +65,24 @@
 }
 
 #form_login a{
-    color:black;
+    color:rgb(32, 197, 209);
+    text-decoration: none;
 }
 
 #form_login a:hover{
-    color:rgb(38, 36, 163);
-    text-decoration: none;
+    color:rgb(170, 70, 228);
 }
 
 input.ng-invalid.ng-touched{
     border-bottom:1px solid red !important;
 }
+
+select{
+    background-color:rgb(32, 32, 32);
+    color:white;
+    border-radius: 5px;
+}
+
+
+
+

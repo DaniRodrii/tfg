@@ -120,15 +120,10 @@ export class VerRestComponent implements OnInit {
           let restaurante=JSON.stringify(res);
           let array=JSON.parse(restaurante);
           for(let i=0; i<array.length;i++ ){
-            if(this.verSeleccion == '10'){
-              if(array[i].mesas>10){
-                array.splice(i, 1);
-              }
-              
-            }else if(this.verSeleccion == '50'){
-              if(array[i].mesas>50){
-                array.splice(i, 1);
-              }
+              if(this.verSeleccion == '50'){
+                if(array[i].mesas>50){
+                  array.splice(i, 1);
+                }
             }else if(this.verSeleccion == '100'){
               if(array[i].mesas>100){
                 array.splice(i, 1);

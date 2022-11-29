@@ -2,7 +2,7 @@
 <div id="fondo">
     <div class="container">
       <div id="verRest" class="row">
-        <a routerLink="/aniadirStock" class="enlace-aniadir">Añadir producto</a>
+        <a routerLink="/aniadirStock" class="enlace-todos">Añadir producto</a>
         <div class="col-12 p-20">
           <div name="direccion-filtrar" class="col-md-12 col-12 col-sm-12">
             <span>Nombre:</span>
@@ -32,7 +32,7 @@
                     <td>{{prod.coste_total}}</td>
                     <td>{{prod.nom_rest}}</td>
                     <td>Stock {{prod.estado}}</td>
-                    <td *ngIf="prod"><a routerLink="/editarStock" ><span class="pi pi-pencil iconos_editar" (mouseover)="subir(prod._id)"></span></a></td>
+                    <td *ngIf="prod"><a routerLink="/editarStock" ><i class="pi pi-pencil iconos_editar" (mouseover)="subir(prod._id)"></i></a></td>
                     <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarProd" class="borrar_rest"  (click)="borrar(prod._id)"><i class="pi pi-trash iconos_borrar"></i>.</button></td>
                 </tr>
             </tbody>

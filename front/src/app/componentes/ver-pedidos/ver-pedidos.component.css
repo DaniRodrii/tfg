@@ -1,16 +1,23 @@
 #fondo{
-    background-image: url('../../../assets/rest-fondo.webp');
+    background-image: url('../../../assets/rest-fondo.webp');  
+    background-size: cover;
     padding-top: 150px;
     padding-bottom: 150px;
 } 
 
 #verEmp{
-    border: 3px groove rgb(107, 106, 106);
-    background-color:#d2c9ec;
+    border:1px solid rgb(170, 70, 228);
+    background-color:#000000;
     margin:auto;
     display: block;
     padding:50px;
+    border-radius: 8px;
     text-align: center;
+    color:white;
+}
+
+#verEmp h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .iconos_borrar{
@@ -35,6 +42,7 @@ input.ng-invalid.ng-touched{
 .pedido{
     border:1px dotted black;
     background-color: rgb(255, 255, 255);
+    color:black;
 }
 
 .pedido-header h2{
@@ -54,11 +62,11 @@ input.ng-invalid.ng-touched{
 }
 
 .enlace-todos {
-    color:black;
+    color:rgb(32, 197, 209);
 }
 
 .enlace-todos:hover{
-    color:rgb(38, 36, 163);
+    color:rgb(93, 91, 197);
     text-decoration: none;
 }
 
@@ -72,6 +80,10 @@ input.ng-invalid.ng-touched{
     text-align: right;
 }
 
-
+select{
+    background-color:rgb(32, 32, 32);
+    color:white;
+    border-radius: 5px;
+}
 
 

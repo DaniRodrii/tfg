@@ -15,7 +15,7 @@ export class EditarStockComponent implements OnInit {
   public editarStockForm!: FormGroup;
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') && localStorage.getItem('rest')){
+    if(localStorage.getItem('token') && localStorage.getItem('rest') && sessionStorage.getItem("stock")){
 
       this.editarStockForm = this.fb.group({
         nom_prod:['', [

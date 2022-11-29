@@ -1,94 +1,49 @@
 #fondo{
     background-image: url('../../../assets/rest-fondo.webp');
+    background-size: cover;
     padding-top: 100px;
     padding-bottom: 100px;
 } 
 
 #editaremp{
-    border: 3px groove rgb(107, 106, 106);
-    background-color:#d2c9ec;
-    margin:0 auto;
+    border:1px solid rgb(170, 70, 228);
+    background-color:#000000;
+    margin:auto;
     display: block;
-    width: 1500px;
-    padding:50px;
-    text-align: center;
-    margin-left: -110px;
-}
-
-.iconos_borrar{
-    color:rgb(255, 0, 0);
-}
-
-.iconos_editar{
-    color:rgb(90, 138, 0);
-}
-
-.iconos_pedidos{
-    color:rgb(218, 131, 0);
-}
-
-.borrar_rest{
-    background:none;
-    border:none;
-}
-
-.enlace-todos{
-    margin-right:15px;
-    color:rgb(46, 48, 48)
-}
-
-.enlace-todos:hover{
-    color:rgb(93, 91, 197);
-}
-
-form{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-form input[type="text"]{
-    border: none;
-    border-bottom: 1px solid rgb(171, 0, 206);
-    background: none;
-    width: 250px;
-    outline: none;
-    margin: auto;
-    display:block;
-}
-
-form input[type="number"]{
-    border: none;
-    border-bottom: 1px solid rgb(171, 0, 206);
-    background: none;
-    width: 250px;
-    outline: none;
-    margin: auto;
-    display:block;
-}
-
-form input::placeholder{
+    width: 600px;
+    padding:20px;
+    border-radius: 8px;
     text-align: center;
 }
 
-
-form h1{
-    color:#0a0a0a;
+#editaremp h1{
+    margin-bottom:20px;
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-form label{
-    margin-top: 20px;
+#editaremp label{
+    color:#a99aff;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.ref-sexo{
-    margin-left: 10px;
+#editaremp label b{
+    color:white;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+} 
+
+#editaremp a{
+    color:rgb(32, 197, 209);
+    text-decoration: none;
 }
 
-.ref-cargo{
-    margin-left: 10px;
+#editaremp a:hover{
+    color:rgb(170, 70, 228);
 }
 
-form button{
+#editaremp button{
     margin: auto;
     display:block;
     margin-top:20px;
@@ -96,11 +51,46 @@ form button{
     border: none;
     border-radius: 20px;
     color: white;
-    background-color: rgb(167, 157, 148);
+    background-color: #b6a9ff;
 }
 
-form button:hover{
-    background-color: rgb(43, 42, 41);
+#editaremp form button:hover{
+    background-color: rgb(170, 70, 228);
+}
+
+#editaremp form input[type="text"]{
+    width: 250px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid rgb(67, 105, 209);
+    background: none;
+    outline: none;
+    margin: auto;
+    display:block;
+    color:white;
+}
+
+#editaremp form input[type="number"]{
+    width: 250px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid rgb(67, 105, 209);
+    background: none;
+    outline: none;
+    margin: auto;
+    display:block;
+    color:white;
+}
+
+#editaremp form input::placeholder{
+    text-align: center;
+}
+
+.img-perfil{
+    width:100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 10px 10px 10px 1px;
 }
 
 input.ng-invalid.ng-touched{
@@ -108,3 +98,7 @@ input.ng-invalid.ng-touched{
 }
 
 
+span{
+    color:white;
+    margin-left:10px;
+}

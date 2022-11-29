@@ -23,16 +23,16 @@
       <div id="verEmp">
         <hr><h1>Empleados</h1>
         <div class="row">
-            <div name="direccion-filtrar" class="col-md-6 col-6 col-sm-6">
-              <span>DNI:</span>
+            <div class="col-md-12 col-12 col-sm-12 direccion-filtrar">
                 <form [formGroup]="filtradoDNI" (submit)="filtrarDNI()">
+                  <span>DNI:</span>
                   <div class="form-group">
-                    <input type="text" formControlName="DNI" name="DNI" class="form-control nom_rest"  required><br>
+                    <input type="text" formControlName="DNI" name="DNI" class="form-control nom_rest"  required/>
                     <button type="submit" class="btn filtrado" [disabled]="filtradoDNI.invalid">Añadir</button>
                   </div>
                 </form>
             </div>
-            <div name="mesas-filtrar" class="col-md-6 col-6 col-sm-6">
+            <div class="col-md-12 col-12 col-sm-12 mesas-filtrar">
               <span>Cargo:</span>
                 <select name="filtro" (change)="filtrarCargo()" [(ngModel)]="opcionSeleccionado">
                   <option selected value="0">Elija un cargo</option>
@@ -65,7 +65,7 @@
                         <td>{{empleado.cargo}}</td>
                         <td>{{empleado.telefono}}</td>
                         <td>{{empleado.DNI}}</td>
-                        <td><a routerLink="/editarEmp" ><span class="pi pi-pencil iconos_editar" (click)="subir(empleado._id)"></span></a></td>
+                        <td><a routerLink="/editarEmp" ><i class="pi pi-pencil iconos_editar" (click)="subir(empleado._id)"></i></a></td>
                         <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarEmp" class="borrar_rest" (click)="subir(empleado._id)"><i class="pi pi-trash iconos_borrar"></i>.</button></td>
                     </tr>
                 </tbody>

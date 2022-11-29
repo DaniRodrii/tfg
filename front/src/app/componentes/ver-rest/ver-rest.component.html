@@ -22,21 +22,20 @@
 <div id="fondo">
     <div class="container">
       <div id="verRest" class="row">
-        <div class="row">
-          <div name="direccion-filtrar" class="col-md-6 col-6 col-sm-6">
-            <span>Dueño:</span>
+        <div class="row filtros">
+          <div class="col-md-12 col-12 col-sm-12 direccion-filtrar">
+            <span class="mr-20 mb">Dueño:</span>
               <form [formGroup]="filtrarRestForm" (submit)="filtrarNomRest()">
-                <div class="form-group">
-                  <input type="text" formControlName="nom_dueno" name="nom_dueno" class="form-control nom_rest"  required><br>
+                <div class="form-group form-filtrado">
+                  <input type="text" formControlName="nom_dueno" name="nom_dueno" class="form-control nom_rest" required>
                   <button type="submit" class="btn filtrado" [disabled]="filtrarRestForm.invalid">Añadir</button>
                 </div>
               </form>
           </div>
-          <div name="mesas-filtrar" class="col-md-6 col-6 col-sm-6">
-            <span>Numero máximo de mesas:</span>
+          <div class="col-md-12 col-12 col-sm-12 mesas-filtrar">
+            <span class="mr-20">Mesas:</span>
               <select [(ngModel)]="opcionSeleccionado2" name="filtro" (change)="filtrarMesas()">
-                <option selected value="0">Numero maximo de mesas</option>
-                <option value='10'>10</option>
+                <option selected value="0">Numero maximo</option>
                 <option value='50'>50</option>
                 <option value='100'>100</option>
               </select>
@@ -65,8 +64,8 @@
                     <td>{{rest.mesas}}</td>
                     <td>{{rest.direccion}}</td>
                     <td *ngIf="servicio.rest.length>0"><a routerLink="/verEmp"><i class="pi pi-user iconos" (mouseover)="subir(rest._id)"></i></a></td>
-                    <td *ngIf="servicio.rest"><a routerLink="/verStock" ><span class="pi pi-shopping-bag iconos_stock" (mouseover)="subir(rest._id)"></span></a></td>
-                    <td *ngIf="servicio.rest"><a routerLink="/editarRest" ><span class="pi pi-pencil iconos_editar" (mouseover)="subir(rest._id)"></span></a></td>
+                    <td *ngIf="servicio.rest"><a routerLink="/verStock" ><i class="pi pi-shopping-bag iconos_stock" (mouseover)="subir(rest._id)"></i></a></td>
+                    <td *ngIf="servicio.rest"><a routerLink="/editarRest" ><i class="pi pi-pencil iconos_editar" (mouseover)="subir(rest._id)"></i></a></td>
                     <td *ngIf="servicio.rest"><button data-bs-toggle="modal" data-bs-target="#modalBorrarRest" class="borrar_rest"><i class="pi pi-trash iconos_borrar" (click)="subir(rest._id)"></i>.</button></td>
                 </tr>
             </tbody>

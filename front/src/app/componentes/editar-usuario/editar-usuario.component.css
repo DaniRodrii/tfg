@@ -25,7 +25,7 @@
     color:white;
     font-size: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-}
+} 
 
 #logueado a{
     color:rgb(32, 197, 209);
@@ -44,7 +44,7 @@
     color:white;
     margin-bottom: 20px;
 }
-
+ 
 #logueado form button:hover{
     background-color: rgb(170, 70, 228);
 }

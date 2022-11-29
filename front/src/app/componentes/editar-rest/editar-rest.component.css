@@ -1,35 +1,47 @@
 #fondo{
     background-image: url('../../../assets/rest-fondo.webp');
+    background-size: cover;
     padding-top: 100px;
     padding-bottom: 100px;
 } 
 
 #editarest{
-    border: 3px groove rgb(107, 106, 106);
-    background-color:#d2c9ec;
+    border:1px solid rgb(170, 70, 228);
+    background-color:#000000;
     margin:auto;
     display: block;
     width: 600px;
     padding:20px;
-    text-align:center;
+    border-radius: 8px;
+    text-align: center;
 }
 
 #editarest h1{
     margin-bottom:20px;
-    color:rgb(171, 0, 206);
+    color:white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-#editarest form p{
-    font-weight: bold;
+#editarest label{
+    color:#a99aff;
+    font-size: 18px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+#editarest label b{
+    color:white;
+    font-size: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+} 
 
 #editarest a{
-    color:black;
+    color:rgb(32, 197, 209);
+    text-decoration: none;
 }
 
 #editarest a:hover{
-    color:rgb(38, 36, 163);
-    text-decoration: none;
+    color:rgb(170, 70, 228);
+    
 }
 
 #editarest button{
@@ -40,11 +52,11 @@
     border: none;
     border-radius: 20px;
     color: white;
-    background-color: rgb(167, 157, 148);
+    background-color: #b6a9ff;
 }
 
 #editarest form button:hover{
-    background-color: rgb(171, 0, 206);
+    background-color: rgb(170, 70, 228);
 }
 
 #editarest form input{
@@ -56,13 +68,6 @@
     outline: none;
     margin: auto;
     display:block;
-}
-
-#editarest form button{
-    margin-left: 45%;
-    border: none;
-    border-radius: 20px;
-    background-color: rgb(167, 157, 148);
     color:white;
 }
 

@@ -1,7 +1,7 @@
 <div id="fondo">  
     <div class="container" id="form_stock">
         <form  [formGroup]="aniadirStockForm" (submit)="aniadir()">
-            <h1>Añadir restaurante</h1>
+            <h1>Añadir stock</h1>
             <div class="form-group">
                 <label for="nom_prod">Nombre producto</label>
                 <input type="text" formControlName="nom_prod"  name="nom_prod" class="form-control" required><br>
@@ -30,5 +30,6 @@
             </div>
             <button type="submit" class="btn" [disabled]="aniadirStockForm.invalid">Añadir</button>
         </form>
+        <a routerLink='/verStock'>Volver</a>
     </div>
 </div>

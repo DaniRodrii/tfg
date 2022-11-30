@@ -10,16 +10,33 @@ funcionesPedidos.crearPedido = async (req, res) => {
     return res.status(200).json('ok');
 }
 
-funcionesPedidos.obtenerPedidos = (req, res) => {
+funcionesPedidos.obtenerPedidos = async (req, res) => {
 
-    pedidos.find()
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
+
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+
+    let rests = await restaurante.find({id_user:id});
+        
+    for(let i=0; i<rests.length;i++){
+        let nombre_rest=rests[i].nom_rest;
+        pedidos.find({nom_rest:nombre_rest})
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
+    }
+
 }
 
 funcionesPedidos.obtenerRestaurantes = (req, res) => {
+    let token=req.params.id;
+    let tokenSplit=token.replace(/['"]+/g, '');
 
-    restaurante.find()
+    const tokenDecode=jwt.decode(tokenSplit);
+    const id=tokenDecode._id;
+
+    restaurante.find({id_user:id})
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 }

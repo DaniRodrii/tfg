@@ -28,6 +28,7 @@ export class EditarUsuarioComponent implements OnInit {
             
           ]],
           nom_compl:[' ', [
+            Validators.pattern(/^[A-za-zñ]+(\s[A-za-zñ]+)*$/),
             Validators.minLength(6),
             Validators.maxLength(25),
           ]],

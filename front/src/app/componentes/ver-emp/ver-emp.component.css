@@ -111,6 +111,17 @@ select{
     color:white;
 }
 
+.nom_rest{
+    border: none;
+    border: 1px solid rgb(32, 197, 209) !important;
+    background: none;
+    width: 250px;
+    outline: none;
+    margin: auto;
+    display:block;
+    color:white;
+}
+
 #verEmp form input[type="number"]{
     border: none;
     border-bottom: 1px solid rgb(32, 197, 209);

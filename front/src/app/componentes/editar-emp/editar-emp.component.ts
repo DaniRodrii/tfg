@@ -18,10 +18,10 @@ export class EditarEmpComponent implements OnInit {
 
       this.editarEmpForm = this.fb.group({
         nom_emp:['', [
-          Validators.pattern(/^[A-za-z]+(\s[A-za-z]+)*$/)
+          Validators.pattern(/^[A-za-zñ]+(\s[A-za-zñ]+)*$/)
         ]],
         DNI:['', [
-          Validators.pattern(/^[0-9]{8}[A-Z]{1}$/)
+          Validators.pattern(/^[0-9]{8}[A-ZÑ]{1}$/)
         ]],
         telefono:['', [
           Validators.pattern(/^[0-9]{9}$/)

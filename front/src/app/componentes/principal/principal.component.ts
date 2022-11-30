@@ -33,12 +33,15 @@ export class PrincipalComponent implements OnInit {
       let cookies = document.cookie;
       let cookieSplit=cookies.split(";");
       let existe=false;
-      for(let i=0; i<cookieSplit.length; i++){
-        let valor=cookieSplit[i].split("=");
-        if(valor[1].trim()=="true"){
-          existe=true;
+      if(cookies.length != 0){
+        for(let i=0; i<cookieSplit.length; i++){
+          let valor=cookieSplit[i].split("=");
+          if(valor[1].trim()=="true"){
+            existe=true;
+          }
         }
       }
+      
 
 
       if(!existe){

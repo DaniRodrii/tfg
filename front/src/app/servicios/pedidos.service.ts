@@ -26,16 +26,16 @@ export class PedidosService {
 
   constructor(private http: HttpClient) { }
 
-  cargarRestaurantes(){
-    return this.http.get(this.url_api + '/verRests');
+  cargarRestaurantes(id: any){
+    return this.http.get(this.url_api + '/verRests/'+id);
   }
 
   aniadirPedido(form : FormData){
     return this.http.post(this.url_api + '/aniadir', form);
   }
 
-  obtenerPedidos(){
-    return this.http.get(this.url_api +'/verPedidos');
+  obtenerPedidos(id: any){
+    return this.http.get(this.url_api +'/verPedidos/'+id);
   }
 
   borrarPedido(id: any){

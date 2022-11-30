@@ -63,9 +63,9 @@
                     <td>{{rest.telefono}}</td>
                     <td>{{rest.mesas}}</td>
                     <td>{{rest.direccion}}</td>
-                    <td *ngIf="servicio.rest.length>0"><a><i class="pi pi-user iconos" (mouseover)="subir(rest._id, 1)"></i></a></td>
-                    <td *ngIf="servicio.rest"><a><i class="pi pi-shopping-bag iconos_stock" (mouseover)="subir(rest._id, 2)"></i></a></td>
-                    <td *ngIf="servicio.rest"><a><i class="pi pi-pencil iconos_editar" (mouseover)="subir(rest._id, 3)"></i></a></td>
+                    <td *ngIf="servicio.rest.length>0"><a><i class="pi pi-user iconos" (click)="subir(rest._id, 1)"></i></a></td>
+                    <td *ngIf="servicio.rest"><a><i class="pi pi-shopping-bag iconos_stock" (click)="subir(rest._id, 2)"></i></a></td>
+                    <td *ngIf="servicio.rest"><a><i class="pi pi-pencil iconos_editar" (click)="subir(rest._id, 3)"></i></a></td>
                     <td *ngIf="servicio.rest"><button data-bs-toggle="modal" data-bs-target="#modalBorrarRest" class="borrar_rest"><i class="pi pi-trash iconos_borrar" (click)="subir(rest._id, 4)"></i>.</button></td>
                 </tr>
             </tbody>

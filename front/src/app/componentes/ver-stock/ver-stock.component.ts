@@ -46,8 +46,8 @@ export class VerStockComponent implements OnInit {
   }
 
   subir(id: any){
-
-    sessionStorage.setItem('stock', id)
+    sessionStorage.setItem('stock', id);
+    this.router.navigate(['/editarStock']).then(()=> location.reload());
   }
 
   borrar(id:any){

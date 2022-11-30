@@ -26,7 +26,8 @@ export class VerPedidosComponent implements OnInit {
   }
 
   cargar(){
-    this.servicio.obtenerPedidos().subscribe(
+    let token=localStorage.getItem("token")!;
+    this.servicio.obtenerPedidos(token).subscribe(
       res=>{
         let pedidos=JSON.stringify(res);
           this.servicio.pedidos=JSON.parse(pedidos);
@@ -39,7 +40,8 @@ export class VerPedidosComponent implements OnInit {
   }
 
   cargarRest(){
-    this.servicio.cargarRestaurantes().subscribe(
+    let token=localStorage.getItem("token")!;
+    this.servicio.cargarRestaurantes(token).subscribe(
       res=>{
         let datos=JSON.stringify(res);
         this.servicio.pedidos2=JSON.parse(datos);

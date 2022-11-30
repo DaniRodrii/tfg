@@ -19,7 +19,7 @@ export class EditarStockComponent implements OnInit {
 
       this.editarStockForm = this.fb.group({
         nom_prod:['', [
-          Validators.pattern(/^[A-za-z]+(\s[A-za-z]+)*$/)
+          Validators.pattern(/^[A-za-zñ]+(\s[A-za-zñ]+)*$/)
         ]],
         cantidad:['', [
           Validators.pattern(/^[0-9]+$/)

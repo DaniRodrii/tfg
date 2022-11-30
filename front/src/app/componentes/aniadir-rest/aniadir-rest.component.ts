@@ -17,10 +17,10 @@ export class AniadirRestComponent implements OnInit {
   ngOnInit(): void {
     this.aniadirRestForm = this.fb.group({
       nom_rest:['', [
-        Validators.pattern(/^[A-za-z]+(\s[A-za-z]+)*$/)
+        Validators.pattern(/^[A-za-zñ]+(\s[A-za-zñ]+)*$/)
       ]],
       nom_dueno:['', [
-        Validators.pattern(/^[A-za-z]+\s[A-za-z]+$/)
+        Validators.pattern(/^[A-za-zñ]+\s[A-za-zñ]+$/)
       ]],
       telefono:['', [
         Validators.pattern(/^[0-9]{9}$/)
@@ -31,7 +31,7 @@ export class AniadirRestComponent implements OnInit {
         Validators.pattern(/^[0-9]+$/)
       ]],
       direccion:['', [
-        Validators.pattern(/^[A-za-z]+\s[A-za-z]+\s[0-9]+$/)
+        Validators.pattern(/^[A-za-zñ]+\s[A-za-zñ]+\s[0-9]+$/)
       ]],
     })
   }

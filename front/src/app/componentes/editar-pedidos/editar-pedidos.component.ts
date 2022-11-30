@@ -19,10 +19,10 @@ export class EditarPedidosComponent implements OnInit {
     if(localStorage.getItem('token') && sessionStorage.getItem('ped')){
       this.editarPedidoForm = this.fb.group({
         nom:['', [
-          Validators.pattern(/^([A-za-z]+\s*)+$/)
+          Validators.pattern(/^([A-za-zñ]+\s*)+$/)
         ]],
         descripcion:['', [
-          Validators.pattern(/^([A-za-z]+\s*)+$/)
+          Validators.pattern(/^([A-za-zñ]+\s*)+$/)
         ]],
         precio:['', [
           Validators.min(0),
@@ -30,10 +30,10 @@ export class EditarPedidosComponent implements OnInit {
           Validators.pattern(/^[0-9]+$/)
         ]],
         direccion:['', [
-          Validators.pattern(/^[A-za-z]+\s[A-za-z]+\s[0-9]+$/)
+          Validators.pattern(/^[A-za-zñ]+\s[A-za-zñ]+\s[0-9]+$/)
         ]],
         ciudad:['', [
-          Validators.pattern(/^([A-za-z]+\s*)+$/)
+          Validators.pattern(/^([A-za-zñ]+\s*)+$/)
         ]],
       })
   

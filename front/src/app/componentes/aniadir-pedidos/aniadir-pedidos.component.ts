@@ -16,10 +16,10 @@ export class AniadirPedidosComponent implements OnInit {
   ngOnInit(): void {
     this.aniadirPedidoForm = this.fb.group({
       nom:['', [
-        Validators.pattern(/^([A-za-z]+\s*)+$/)
+        Validators.pattern(/^([A-za-zñ]+\s*)+$/)
       ]],
       descripcion:['', [
-        Validators.pattern(/^([A-za-z]+\s*)+$/)
+        Validators.pattern(/^([A-za-zñ]+\s*)+$/)
       ]],
       precio:['', [
         Validators.min(0),
@@ -27,10 +27,10 @@ export class AniadirPedidosComponent implements OnInit {
         Validators.pattern(/^[0-9]+$/)
       ]],
       direccion:['', [
-        Validators.pattern(/^[A-za-z]+\s[A-za-z]+\s[0-9]+$/)
+        Validators.pattern(/^[A-za-zñ]+\s[A-za-zñ]+\s[0-9]+$/)
       ]],
       ciudad:['', [
-        Validators.pattern(/^([A-za-z]+\s*)+$/)
+        Validators.pattern(/^([A-za-zñ]+\s*)+$/)
       ]],
       nom_rest:['', [
         Validators.required
@@ -70,7 +70,8 @@ export class AniadirPedidosComponent implements OnInit {
   }
 
   cargarRest(){
-    this.servicio.cargarRestaurantes().subscribe(
+    let token=localStorage.getItem("token")!;
+    this.servicio.cargarRestaurantes(token).subscribe(
       res=>{
         let datos=JSON.stringify(res);
         this.servicio.pedidos=JSON.parse(datos);

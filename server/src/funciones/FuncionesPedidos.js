@@ -22,7 +22,7 @@ funcionesPedidos.obtenerPedidos = async (req, res) => {
         
     for(let i=0; i<rests.length;i++){
         let nombre_rest=rests[i].nom_rest;
-        pedidos.find({nom_rest:nombre_rest})
+        await pedidos.find({nom_rest:nombre_rest})
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
     }

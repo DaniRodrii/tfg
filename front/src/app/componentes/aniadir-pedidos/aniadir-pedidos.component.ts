@@ -52,7 +52,8 @@ export class AniadirPedidosComponent implements OnInit {
 
        })
     }else{
-      this.servicio.aniadirPedido(this.aniadirPedidoForm.value).subscribe(
+      let token=localStorage.getItem("token")!;
+      this.servicio.aniadirPedido(this.aniadirPedidoForm.value, token).subscribe(
         res=>{
           swal.fire({
             title: 'Pedido registrado',   

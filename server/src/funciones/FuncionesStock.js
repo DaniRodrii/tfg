@@ -44,7 +44,7 @@ funcionesStock.obtenerProd = async (req, res) => {
 
 funcionesStock.editarProd = (req, res) => {
     const id=req.params.id;
-
+    console.log(req.body)
 
     stock.findByIdAndUpdate(id, req.body)
         .then((data) => res.json(data))

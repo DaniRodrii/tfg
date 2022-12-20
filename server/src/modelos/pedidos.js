@@ -29,6 +29,11 @@ const DatosPedidos = mongoose.Schema({
     ciudad: {
         type: String,
         require: true
+    },
+
+    id_user: {
+        type: String,
+        require: true
     }
 });
 

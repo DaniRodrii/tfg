@@ -30,8 +30,8 @@ export class PedidosService {
     return this.http.get(this.url_api + '/verRests/'+id);
   }
 
-  aniadirPedido(form : FormData){
-    return this.http.post(this.url_api + '/aniadir', form);
+  aniadirPedido(form : FormData, token: string){
+    return this.http.post(this.url_api + '/aniadir/'+token, form);
   }
 
   obtenerPedidos(id: any){

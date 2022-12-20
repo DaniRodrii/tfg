@@ -15,7 +15,7 @@ export class EditarStockComponent implements OnInit {
   public editarStockForm!: FormGroup;
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') && localStorage.getItem('rest') && sessionStorage.getItem("stock")){
+    if(localStorage.getItem('token') && localStorage.getItem('rest') && localStorage.getItem("stock")){
 
       this.editarStockForm = this.fb.group({
         nom_prod:['', [
@@ -40,12 +40,11 @@ export class EditarStockComponent implements OnInit {
   }
 
   cargar(){
-    const token=sessionStorage.getItem('stock')!;
+    const token=localStorage.getItem('stock')!;
     this.servicio.obtenerProd(token).subscribe(
       res => {
         let datos=JSON.stringify(res);
         this.servicio.prod=JSON.parse(datos);
-        sessionStorage.removeItem('stock');
       },
       err => {
          console.error(err);
@@ -55,7 +54,7 @@ export class EditarStockComponent implements OnInit {
 
 
   editar(){
-    const token = sessionStorage.getItem('stock')!;
+    const token = localStorage.getItem('stock')!;
 
 
     if (this.editarStockForm.value.nom_prod.length < 2) {
@@ -89,7 +88,8 @@ export class EditarStockComponent implements OnInit {
     } else {
       this.servicio.editarStockDatos(this.editarStockForm.value, token).subscribe(
         res => {
-          console.log(res);
+          console.log(res);  
+        localStorage.removeItem('stock');
           location.reload();
         },
         err => {

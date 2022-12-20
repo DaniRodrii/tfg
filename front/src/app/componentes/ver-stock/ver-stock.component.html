@@ -33,7 +33,7 @@
                       <td>{{prod.coste_total}}</td>
                       <td>{{prod.nom_rest}}</td>
                       <td>Stock {{prod.estado}}</td>
-                      <td *ngIf="prod"><a routerLink="/editarStock" ><i class="pi pi-pencil iconos_editar" (mouseover)="subir(prod._id)"></i></a></td>
+                      <td *ngIf="prod"><a routerLink="/editarStock" ><i class="pi pi-pencil iconos_editar" (click)="subir(prod._id)"></i></a></td>
                       <td><button data-bs-toggle="modal" data-bs-target="#modalBorrarProd" class="borrar_rest"  (click)="borrar(prod._id)"><i class="pi pi-trash iconos_borrar"></i>.</button></td>
                   </tr>
               </tbody>
